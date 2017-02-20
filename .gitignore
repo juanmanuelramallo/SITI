@@ -31,3 +31,9 @@
 # Debug files
 *.dSYM/
 *.su
+
+# MAC OS garbage
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS.Store
