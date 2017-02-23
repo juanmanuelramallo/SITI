@@ -40,12 +40,12 @@ void GPRS_mef(uint8_t* pas, uint8_t* lat, uint8_t* lng) {
     strcat(stringAEnviar, lat);
     strcat(stringAEnviar, stringThree);
     strcat(stringAEnviar, lng);
-    strcat(stringAEnviar, (uint8_t*)"}");
+    strcat(stringAEnviar, (uint8_t*)"}\r\n");
 
     uartWriteString( UART_USB, stringAEnviar);
     uartWriteString( UART_USB, (uint8_t*)"\n");
 
-    uartWriteString(UART_485, (uint8_t*)"AT+HTTPDATA=50,2000\r");
+    uartWriteString(UART_485, (uint8_t*)"AT+HTTPDATA=80,4000\r");
 
     actualState = SENDING;
     sendState = STRING;
@@ -67,15 +67,14 @@ void GPRS_mef(uint8_t* pas, uint8_t* lat, uint8_t* lng) {
 }
 
 void GPRS_leerRespuesta(){
-  actualState = READING;
   uartWriteString( UART_USB, gprsResponseString);
   uartWriteString( UART_USB, (uint8_t*)"\n");
   gprsResponseString[0]='\0';
-  actualState = IDLE;
 }
 
 void GPRS_init(void){
   actualState = INIT;
+  uint8_t cont = 0;
 
   uint8_t aux;
   uartWriteString( UART_USB, (uint8_t*)"\n - - - INICIALIZACIÓN GPRS - - - \n");
@@ -92,7 +91,8 @@ void GPRS_init(void){
 
   uartWriteString( UART_485, (uint8_t*)"AT\r");
   delay(60);
-  esperaRespuesta();
+  GPRS_leerRespuesta();
+  // esperaRespuesta();
 
   // // Ver si necesita poner PIN de la sim
   // uartWriteString( UART_485, (uint8_t*)"AT+CPIN?\r");
@@ -101,10 +101,12 @@ void GPRS_init(void){
   // Ver intensidad de señal promedio 25
   uartWriteString( UART_485, (uint8_t*)"AT+CSQ\r");
   delay(60);
-  esperaRespuesta();
+  GPRS_leerRespuesta();
+  // esperaRespuesta();
 
   uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"Contype\",\"GPRS\"\r");
   delay(60);
+  GPRS_leerRespuesta();
   // aux = esperaRespuesta();
   // while ( aux != 0 ){
   //   uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"Contype\",\"GPRS\"\r");
@@ -115,67 +117,77 @@ void GPRS_init(void){
   // uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"APN\",\"wap.gprs.unifon.com.ar\"\r");
   uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"APN\",\"internet.movil\"\r");
   delay(60);
-  aux = esperaRespuesta();
-  while ( aux != 0 ){
-    // uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"APN\",\"wap.gprs.unifon.com.ar\"\r");
-    uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"APN\",\"internet.movil\"\r");
-    delay(60);
-    aux = esperaRespuesta();
-  }
+  GPRS_leerRespuesta();
+  // aux = esperaRespuesta();
+  // while ( aux != 0 ){
+  //   // uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"APN\",\"wap.gprs.unifon.com.ar\"\r");
+  //   uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"APN\",\"internet.movil\"\r");
+  //   delay(60);
+  //   aux = esperaRespuesta();
+  // }
 
   // uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"USER\",\"wap\"\r");
   uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"USER\",\"internet\"\r");
   delay(60);
-  aux = esperaRespuesta();
-  while ( aux != 0 ){
-    // uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"USER\",\"wap\"\r");
-    uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"USER\",\"internet\"\r");
-    delay(60);
-    aux = esperaRespuesta();
-  }
+  GPRS_leerRespuesta();
+  // aux = esperaRespuesta();
+  // while ( aux != 0 ){
+  //   // uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"USER\",\"wap\"\r");
+  //   uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"USER\",\"internet\"\r");
+  //   delay(60);
+  //   aux = esperaRespuesta();
+  // }
 
   // uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"PWD\",\"wap\"\r");
   uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"PWD\",\"internet\"\r");
   delay(60);
-  aux = esperaRespuesta();
-  while ( aux != 0 ){
-    // uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"PWD\",\"wap\"\r");
-    uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"PWD\",\"internet\"\r");
-    delay(60);
-    aux = esperaRespuesta();
-  }
-
-  // Activa estado gprs
-  uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=1,1\r");
-  delay(60);
+  GPRS_leerRespuesta();
   // aux = esperaRespuesta();
-  // while( aux != 0){
-  //   uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=1,1\r");
+  // while ( aux != 0 ){
+  //   // uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"PWD\",\"wap\"\r");
+  //   uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=3,1,\"PWD\",\"internet\"\r");
   //   delay(60);
   //   aux = esperaRespuesta();
   // }
+
+  // Activa estado gprs
+  uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=1,1\r");
+  delay(1000);
+  GPRS_leerRespuesta();
+  aux = esperaRespuesta();
+  while( aux != 0 && cont < 5){
+    uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=1,1\r");
+    delay(60);
+    aux = esperaRespuesta();
+    cont++;
+  }
+  cont = 0;
 
   // Muestra ip asignada por ISP
   uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=2,1\r");
   delay(60);
-  aux = esperaRespuesta();
-  while( aux != 0){
-    uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=2,1\r");
-    delay(60);
-    aux = esperaRespuesta();
-  }
-
-  uartWriteString(UART_485, (uint8_t*)"AT+HTTPINIT\r");
-  delay(60);
+  GPRS_leerRespuesta();
   // aux = esperaRespuesta();
-  // while ( aux != 0 ) {
-  //   uartWriteString(UART_485, (uint8_t*)"AT+HTTPINIT\r");
+  // while( aux != 0){
+  //   uartWriteString( UART_485, (uint8_t*)"AT+SAPBR=2,1\r");
   //   delay(60);
   //   aux = esperaRespuesta();
   // }
 
+  uartWriteString(UART_485, (uint8_t*)"AT+HTTPINIT\r");
+  delay(1000);
+  GPRS_leerRespuesta();
+  aux = esperaRespuesta();
+  while ( aux != 0 && cont < 5) {
+    uartWriteString(UART_485, (uint8_t*)"AT+HTTPINIT\r");
+    delay(60);
+    aux = esperaRespuesta();
+    cont++;
+  }
+
   uartWriteString(UART_485, (uint8_t*)"AT+HTTPPARA=\"CID\",1\r");
   delay(60);
+  GPRS_leerRespuesta();
   // aux = esperaRespuesta();
   // while ( aux != 0 ) {
   //   uartWriteString(UART_485, (uint8_t*)"AT+HTTPPARA=\"CID\",1\r");
@@ -185,21 +197,23 @@ void GPRS_init(void){
 
   uartWriteString(UART_485, (uint8_t*)"AT+HTTPPARA=\"URL\",\"http://things.ubidots.com/api/v1.6/devices/ciaa/?token=4GOvwGlOzE9hfL9sKKeelcEhXO9z5h\"\r");
   delay(60);
-  aux = esperaRespuesta();
-  while ( aux != 0 ) {
-    uartWriteString(UART_485, (uint8_t*)"AT+HTTPPARA=\"URL\",\"http://things.ubidots.com/api/v1.6/devices/ciaa/?token=4GOvwGlOzE9hfL9sKKeelcEhXO9z5h\"\r");
-    delay(60);
-    aux = esperaRespuesta();
-  }
+  GPRS_leerRespuesta();
+  // aux = esperaRespuesta();
+  // while ( aux != 0 ) {
+  //   uartWriteString(UART_485, (uint8_t*)"AT+HTTPPARA=\"URL\",\"http://things.ubidots.com/api/v1.6/devices/ciaa/?token=4GOvwGlOzE9hfL9sKKeelcEhXO9z5h\"\r");
+  //   delay(60);
+  //   aux = esperaRespuesta();
+  // }
 
   uartWriteString(UART_485, (uint8_t*)"AT+HTTPPARA=\"CONTENT\",\"application/json\"\r");
   delay(60);
-  aux = esperaRespuesta();
-  while ( aux != 0 ) {
-    uartWriteString(UART_485, (uint8_t*)"AT+HTTPPARA=\"CONTENT\",\"application/json\"\r");
-    delay(60);
-    aux = esperaRespuesta();
-  }
+  GPRS_leerRespuesta();
+  // aux = esperaRespuesta();
+  // while ( aux != 0 ) {
+  //   uartWriteString(UART_485, (uint8_t*)"AT+HTTPPARA=\"CONTENT\",\"application/json\"\r");
+  //   delay(60);
+  //   aux = esperaRespuesta();
+  // }
 
   uartWriteString(UART_USB, (uint8_t*)" - - - GPRS INICIALIZADO - - -\n\n");
   actualState = IDLE;

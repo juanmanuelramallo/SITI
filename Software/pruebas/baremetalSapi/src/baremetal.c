@@ -103,9 +103,10 @@ static uint8_t uartBuff[10];
 uint8_t contador;
 uint8_t contadorString[3];
 
-bool_t flag5seg;
+bool_t flag20seg;
 bool_t flag5ms;
 bool_t flagDatos;
+bool_t flag3seg;
 
 /*==================[internal data definition]==============================*/
 typedef struct {
@@ -276,13 +277,16 @@ bool_t sendCounter( void *ptr ){
 	 tickCounter++;
 	 flag5ms = true;
 	 // considerando la config actual de cada 1ms
-   if( tickCounter == 1000 ){
-      flag5seg = true;
+   if( tickCounter == 4000 ){
+      flag20seg = true;
    }
+	 if( tickCounter % 600 == 0){
+		 flag3seg = true;
+	 }
 
-	 // si pasaron mas de 5 segundos y resulta que el flag esta inactivo
+	 // si pasaron mas de 5 segundos
 	 // restablecer el tickcounter
-	 if ( tickCounter > 1000 && flag5seg == 0 ){
+	 if ( tickCounter == 4000 ){
 		 tickCounter = 0;
 	 }
 
@@ -366,7 +370,32 @@ GPRS_init();
 delay(100);
 
 uint8_t veces = 0;
-// strcpy(contadorString, (uint8_t*)"11");
+// strcpy(contadorString, (uint8_t*)"5");
+
+bool_t flagSending = false;
+
+// TESTING GPRS
+// delay(5000);
+// uartWriteString(UART_USB, (uint8_t*)"EMPIEZA");
+//
+// GPRS_mef("10", "-3456.00608", "-5756.62785");
+// delay(1000);
+// GPRS_leerRespuesta();
+//
+// GPRS_mef("10", "-3456.00608", "-5756.62785");
+// delay(1000);
+// GPRS_leerRespuesta();
+//
+// GPRS_mef("10", "-3456.00608", "-5756.62785");
+// delay(1000);
+// GPRS_leerRespuesta();
+//
+// // delay(1000);
+// while(1){
+// 	delay(2000);
+// 	GPRS_leerRespuesta();
+// }
+
 
 while(1) {
 /* add your code here */
@@ -383,7 +412,7 @@ while(1) {
 		flag5ms = false;
 	}
 
-	if (flag5seg) {
+	if (flag20seg) {
 		itoa(contador, contadorString, 10);
 		uartWriteString(UART_USB, (uint8_t*)"CONTADOR: ");
 		uartWriteString(UART_USB, (uint8_t*)contadorString);
@@ -393,7 +422,6 @@ while(1) {
 		uartWriteString(UART_USB, (uint8_t*)" - LNG -> ");
 		uartWriteString(UART_USB, (uint8_t*)gpsReadLongitudeUbidots());
 		uartWriteString(UART_USB, (uint8_t*)"\n");
-		flag5seg = false;
 	}
 
 	if(gpsReadFlagCharacterReceived()){
@@ -407,20 +435,32 @@ while(1) {
 			gpsClearFlagReady();
 			gpsVarPrint();
 			itoa(contador, contadorString, 10);
+			uartWriteString( UART_USB, (uint8_t*)"Cantidad pasajeros: ");
 			uartWriteString( UART_USB, (uint8_t*)contadorString);
 			uartWriteByte(UART_USB,'\n');
 			uartWriteByte(UART_USB,'\r');
 	}
 
-	if ( flag5seg && flagDatos ){
-		if ( veces < 3 ) {
-			veces++;
+	if (flag20seg) {
+		GPRS_mef(contadorString, gpsReadLatitudeUbidots(), gpsReadLongitudeUbidots());
+		veces++;
+		flag20seg = false;
+		flag3seg = false;
+		flagSending = true;
+		GPRS_leerRespuesta();
+	}
+
+	if (flag3seg && flagSending) {
+		if (veces < 3) {
 			GPRS_mef(contadorString, gpsReadLatitudeUbidots(), gpsReadLongitudeUbidots());
+			veces++;
+			GPRS_leerRespuesta();
 		} else {
+			flagSending = false;
 			veces = 0;
-			flag5seg = 0;
-			flagDatos = false;
+			GPRS_leerRespuesta();
 		}
+		flag3seg = false;
 	}
 
 	// GPRS_leerRespuesta();
