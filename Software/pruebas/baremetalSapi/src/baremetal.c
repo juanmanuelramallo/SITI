@@ -366,41 +366,18 @@ while( !delayRead( &delay1 ) );
 CH1.muestraAnt = analogRead( AI0 );
 CH2.muestraAnt = analogRead( AI1 );
 
-delay(3000);
+// delay(3000);
 
-uartWriteString( UART_USB, (uint8_t*)"\n\r ============================================================== \n\r" );
-uartWriteString( UART_USB, (uint8_t*)"\n\rComienza simulacion\n\r SALTAR GPRS INIT \r\n" );
+// uartWriteString( UART_USB, (uint8_t*)"\n\r ============================================================== \n\r" );
+// uartWriteString( UART_USB, (uint8_t*)"\n\rComienza simulacion\n\r SALTAR GPRS INIT \r\n" );
 
 // GPRS_init();
-delay(100);
+// delay(100);
 
 uint8_t veces = 0;
 // strcpy(contadorString, (uint8_t*)"5");
 
 bool_t flagSending = false;
-
-// TESTING GPRS
-// delay(5000);
-// uartWriteString(UART_USB, (uint8_t*)"EMPIEZA");
-//
-// GPRS_mef("10", "-3456.00608", "-5756.62785");
-// delay(1000);
-// GPRS_leerRespuesta();
-//
-// GPRS_mef("10", "-3456.00608", "-5756.62785");
-// delay(1000);
-// GPRS_leerRespuesta();
-//
-// GPRS_mef("10", "-3456.00608", "-5756.62785");
-// delay(1000);
-// GPRS_leerRespuesta();
-//
-// // delay(1000);
-// while(1){
-// 	delay(2000);
-// 	GPRS_leerRespuesta();
-// }
-
 
 while(1) {
 /* add your code here */
@@ -429,7 +406,6 @@ while(1) {
 		// itoa(CH2.puntoMedio, contadorString, 10);
 		// uartWriteString(UART_USB, (uint8_t*)contadorString);
 		// uartWriteString(UART_USB, (uint8_t*)"\n");
-
 
 		flag5ms = false;
 	}
@@ -469,7 +445,7 @@ while(1) {
 		flag20seg = false;
 		flag3seg = false;
 		flagSending = true;
-		GPRS_leerRespuesta();
+		// GPRS_leerRespuesta();
 	}
 
 	if (flag3seg) {
