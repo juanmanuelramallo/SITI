@@ -248,6 +248,16 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./out/obj/gprs.o
  .data          0x0000000000000000        0x0 ./out/obj/gprs.o
  .bss           0x0000000000000000        0x0 ./out/obj/gprs.o
+ .data.actualState
+                0x0000000000000000        0x1 ./out/obj/gprs.o
+ .data.sendState
+                0x0000000000000000        0x1 ./out/obj/gprs.o
+ .text.GPRS_mef
+                0x0000000000000000      0x124 ./out/obj/gprs.o
+ .text.GPRS_init
+                0x0000000000000000      0x25c ./out/obj/gprs.o
+ .text.esperaRespuesta
+                0x0000000000000000      0x14c ./out/obj/gprs.o
  .debug_macro   0x0000000000000000      0x89e ./out/obj/gprs.o
  .debug_macro   0x0000000000000000       0x22 ./out/obj/gprs.o
  .debug_macro   0x0000000000000000       0x87 ./out/obj/gprs.o
@@ -385,6 +395,8 @@ Discarded input sections
                 0x0000000000000000       0x14 ./out/obj/gps.o
  .text.gpsReadLongitude
                 0x0000000000000000       0x14 ./out/obj/gps.o
+ .text.gpsVarPrint
+                0x0000000000000000      0x184 ./out/obj/gps.o
  .debug_macro   0x0000000000000000      0x89e ./out/obj/gps.o
  .debug_macro   0x0000000000000000       0x22 ./out/obj/gps.o
  .debug_macro   0x0000000000000000       0x87 ./out/obj/gps.o
@@ -3148,6 +3160,10 @@ Discarded input sections
  .text          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strchr.o)
  .data          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strchr.o)
  .bss           0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strchr.o)
+ .text.strchr   0x0000000000000000       0xd0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strchr.o)
+ .debug_frame   0x0000000000000000       0x4c /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strchr.o)
+ .ARM.attributes
+                0x0000000000000000       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strchr.o)
  .data          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcmp.o)
  .bss           0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcmp.o)
  .text          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcpy.o)
@@ -3158,6 +3174,14 @@ Discarded input sections
  .text          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
  .data          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
  .bss           0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
+ .text.critical_factorization
+                0x0000000000000000       0xb8 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
+ .text.two_way_long_needle
+                0x0000000000000000      0x200 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
+ .text.strstr   0x0000000000000000      0x220 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
+ .debug_frame   0x0000000000000000       0xd8 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
+ .ARM.attributes
+                0x0000000000000000       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
  .text          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strtol.o)
  .data          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strtol.o)
  .bss           0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strtol.o)
@@ -3169,11 +3193,18 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-impure.o)
  .rodata._global_impure_ptr
                 0x0000000000000000        0x4 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-impure.o)
+ .text          0x0000000000000000       0xa0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memchr.o)
  .data          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memchr.o)
  .bss           0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memchr.o)
+ .ARM.attributes
+                0x0000000000000000       0x20 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memchr.o)
  .text          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memcmp.o)
  .data          0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memcmp.o)
  .bss           0x0000000000000000        0x0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memcmp.o)
+ .text.memcmp   0x0000000000000000       0x64 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memcmp.o)
+ .debug_frame   0x0000000000000000       0x38 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memcmp.o)
+ .ARM.attributes
+                0x0000000000000000       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memcmp.o)
 
 Memory Configuration
 
@@ -3220,7 +3251,7 @@ END GROUP
  *(.rodata.$Flash2*)
  *(.rodata.$MFlashB512*)
 
-.text           0x000000001a000000     0x5f0c
+.text           0x000000001a000000     0x526c
  FILL mask 0xff
                 0x000000001a000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -3229,19 +3260,19 @@ END GROUP
                 0x000000001a000114                . = ALIGN (0x4)
                 0x000000001a000114                __section_table_start = .
                 0x000000001a000114                __data_section_table = .
-                0x000000001a000114        0x4 LONG 0x1a005f14 LOADADDR (.data)
+                0x000000001a000114        0x4 LONG 0x1a005274 LOADADDR (.data)
                 0x000000001a000118        0x4 LONG 0x10000000 ADDR (.data)
                 0x000000001a00011c        0x4 LONG 0x4a4 SIZEOF (.data)
-                0x000000001a000120        0x4 LONG 0x1a005f14 LOADADDR (.data_RAM2)
+                0x000000001a000120        0x4 LONG 0x1a005274 LOADADDR (.data_RAM2)
                 0x000000001a000124        0x4 LONG 0x10080000 ADDR (.data_RAM2)
                 0x000000001a000128        0x4 LONG 0x0 SIZEOF (.data_RAM2)
-                0x000000001a00012c        0x4 LONG 0x1a005f14 LOADADDR (.data_RAM3)
+                0x000000001a00012c        0x4 LONG 0x1a005274 LOADADDR (.data_RAM3)
                 0x000000001a000130        0x4 LONG 0x20000000 ADDR (.data_RAM3)
                 0x000000001a000134        0x4 LONG 0x0 SIZEOF (.data_RAM3)
-                0x000000001a000138        0x4 LONG 0x1a005f14 LOADADDR (.data_RAM4)
+                0x000000001a000138        0x4 LONG 0x1a005274 LOADADDR (.data_RAM4)
                 0x000000001a00013c        0x4 LONG 0x20008000 ADDR (.data_RAM4)
                 0x000000001a000140        0x4 LONG 0x0 SIZEOF (.data_RAM4)
-                0x000000001a000144        0x4 LONG 0x1a005f14 LOADADDR (.data_RAM5)
+                0x000000001a000144        0x4 LONG 0x1a005274 LOADADDR (.data_RAM5)
                 0x000000001a000148        0x4 LONG 0x2000c000 ADDR (.data_RAM5)
                 0x000000001a00014c        0x4 LONG 0x0 SIZEOF (.data_RAM5)
                 0x000000001a000150                __data_section_table_end = .
@@ -3286,516 +3317,491 @@ END GROUP
                 0x000000001a0003ac      0x104 ./out/obj/baremetal.o
                 0x000000001a0003ac                promedio
  .text.procesaLectura
-                0x000000001a0004b0      0x11c ./out/obj/baremetal.o
+                0x000000001a0004b0      0x130 ./out/obj/baremetal.o
                 0x000000001a0004b0                procesaLectura
  .text.cuentaPasajero
-                0x000000001a0005cc       0xb4 ./out/obj/baremetal.o
-                0x000000001a0005cc                cuentaPasajero
+                0x000000001a0005e0       0xe8 ./out/obj/baremetal.o
+                0x000000001a0005e0                cuentaPasajero
  .text.determinarUmbral
-                0x000000001a000680       0xf0 ./out/obj/baremetal.o
-                0x000000001a000680                determinarUmbral
+                0x000000001a0006c8       0xfc ./out/obj/baremetal.o
+                0x000000001a0006c8                determinarUmbral
  .text.sendCounter
-                0x000000001a000770       0x80 ./out/obj/baremetal.o
-                0x000000001a000770                sendCounter
- .text.main     0x000000001a0007f0      0x350 ./out/obj/baremetal.o
-                0x000000001a0007f0                main
- .text.GPRS_mef
-                0x000000001a000b40      0x124 ./out/obj/gprs.o
-                0x000000001a000b40                GPRS_mef
+                0x000000001a0007c4       0x80 ./out/obj/baremetal.o
+                0x000000001a0007c4                sendCounter
+ .text.main     0x000000001a000844      0x310 ./out/obj/baremetal.o
+                0x000000001a000844                main
  .text.GPRS_leerRespuesta
-                0x000000001a000c64       0x28 ./out/obj/gprs.o
-                0x000000001a000c64                GPRS_leerRespuesta
- .text.GPRS_init
-                0x000000001a000c8c      0x25c ./out/obj/gprs.o
-                0x000000001a000c8c                GPRS_init
- .text.esperaRespuesta
-                0x000000001a000ee8      0x14c ./out/obj/gprs.o
-                0x000000001a000ee8                esperaRespuesta
+                0x000000001a000b54       0x28 ./out/obj/gprs.o
+                0x000000001a000b54                GPRS_leerRespuesta
  .text.gpsFrameFieldInit
-                0x000000001a001034       0x38 ./out/obj/gps.o
-                0x000000001a001034                gpsFrameFieldInit
+                0x000000001a000b7c       0x38 ./out/obj/gps.o
+                0x000000001a000b7c                gpsFrameFieldInit
  .text.gpsFrameVarInit
-                0x000000001a00106c       0x4c ./out/obj/gps.o
-                0x000000001a00106c                gpsFrameVarInit
+                0x000000001a000bb4       0x4c ./out/obj/gps.o
+                0x000000001a000bb4                gpsFrameVarInit
  .text.gpsSetCharacterReceived
-                0x000000001a0010b8       0x20 ./out/obj/gps.o
-                0x000000001a0010b8                gpsSetCharacterReceived
+                0x000000001a000c00       0x20 ./out/obj/gps.o
+                0x000000001a000c00                gpsSetCharacterReceived
  .text.gpsReadCharacterReceived
-                0x000000001a0010d8       0x18 ./out/obj/gps.o
-                0x000000001a0010d8                gpsReadCharacterReceived
+                0x000000001a000c20       0x18 ./out/obj/gps.o
+                0x000000001a000c20                gpsReadCharacterReceived
  .text.gpsReadFlagCharacterReceived
-                0x000000001a0010f0       0x18 ./out/obj/gps.o
-                0x000000001a0010f0                gpsReadFlagCharacterReceived
+                0x000000001a000c38       0x18 ./out/obj/gps.o
+                0x000000001a000c38                gpsReadFlagCharacterReceived
  .text.gpsSetFlagCharacterReceived
-                0x000000001a001108       0x18 ./out/obj/gps.o
-                0x000000001a001108                gpsSetFlagCharacterReceived
+                0x000000001a000c50       0x18 ./out/obj/gps.o
+                0x000000001a000c50                gpsSetFlagCharacterReceived
  .text.gpsClearFlagCharacterReceived
-                0x000000001a001120       0x18 ./out/obj/gps.o
-                0x000000001a001120                gpsClearFlagCharacterReceived
+                0x000000001a000c68       0x18 ./out/obj/gps.o
+                0x000000001a000c68                gpsClearFlagCharacterReceived
  .text.gpsReadFlagReady
-                0x000000001a001138       0x18 ./out/obj/gps.o
-                0x000000001a001138                gpsReadFlagReady
+                0x000000001a000c80       0x18 ./out/obj/gps.o
+                0x000000001a000c80                gpsReadFlagReady
  .text.gpsClearFlagReady
-                0x000000001a001150       0x18 ./out/obj/gps.o
-                0x000000001a001150                gpsClearFlagReady
+                0x000000001a000c98       0x18 ./out/obj/gps.o
+                0x000000001a000c98                gpsClearFlagReady
  .text.gpsReadLatitudeUbidots
-                0x000000001a001168       0xc0 ./out/obj/gps.o
-                0x000000001a001168                gpsReadLatitudeUbidots
+                0x000000001a000cb0       0xc0 ./out/obj/gps.o
+                0x000000001a000cb0                gpsReadLatitudeUbidots
  .text.gpsReadLongitudeUbidots
-                0x000000001a001228       0xc4 ./out/obj/gps.o
-                0x000000001a001228                gpsReadLongitudeUbidots
+                0x000000001a000d70       0xc4 ./out/obj/gps.o
+                0x000000001a000d70                gpsReadLongitudeUbidots
  .text.gpsValidateCharacter
-                0x000000001a0012ec       0x64 ./out/obj/gps.o
-                0x000000001a0012ec                gpsValidateCharacter
+                0x000000001a000e34       0x64 ./out/obj/gps.o
+                0x000000001a000e34                gpsValidateCharacter
  .text.gpsFrameParse
-                0x000000001a001350      0x218 ./out/obj/gps.o
-                0x000000001a001350                gpsFrameParse
- .text.gpsVarPrint
-                0x000000001a001568      0x184 ./out/obj/gps.o
-                0x000000001a001568                gpsVarPrint
+                0x000000001a000e98      0x218 ./out/obj/gps.o
+                0x000000001a000e98                gpsFrameParse
  .text.Chip_DAC_ConfigDAConverterControl
-                0x000000001a0016ec       0x2c ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
+                0x000000001a0010b0       0x2c ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
  .text.analogConfig
-                0x000000001a001718       0xd8 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
-                0x000000001a001718                analogConfig
+                0x000000001a0010dc       0xd8 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
+                0x000000001a0010dc                analogConfig
  .text.analogRead
-                0x000000001a0017f0       0x68 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
-                0x000000001a0017f0                analogRead
+                0x000000001a0011b4       0x68 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
+                0x000000001a0011b4                analogRead
  .text.boardConfig
-                0x000000001a001858        0xc ./out/lib/sapi_bm.a(sAPI_Board.o)
-                0x000000001a001858                boardConfig
- .text.delay    0x000000001a001864       0x50 ./out/lib/sapi_bm.a(sAPI_Delay.o)
-                0x000000001a001864                delay
+                0x000000001a00121c        0xc ./out/lib/sapi_bm.a(sAPI_Board.o)
+                0x000000001a00121c                boardConfig
+ .text.delay    0x000000001a001228       0x50 ./out/lib/sapi_bm.a(sAPI_Delay.o)
+                0x000000001a001228                delay
  .text.delayConfig
-                0x000000001a0018b4       0x3c ./out/lib/sapi_bm.a(sAPI_Delay.o)
-                0x000000001a0018b4                delayConfig
+                0x000000001a001278       0x3c ./out/lib/sapi_bm.a(sAPI_Delay.o)
+                0x000000001a001278                delayConfig
  .text.delayRead
-                0x000000001a0018f0       0x60 ./out/lib/sapi_bm.a(sAPI_Delay.o)
-                0x000000001a0018f0                delayRead
+                0x000000001a0012b4       0x60 ./out/lib/sapi_bm.a(sAPI_Delay.o)
+                0x000000001a0012b4                delayRead
  .text.Chip_SCU_PinMuxSet
-                0x000000001a001950       0x34 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
+                0x000000001a001314       0x34 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
  .text.Chip_SCU_PinMux
-                0x000000001a001984       0x3c ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
+                0x000000001a001348       0x3c ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
  .text.Chip_GPIO_SetPinState
-                0x000000001a0019c0       0x38 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
+                0x000000001a001384       0x38 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
  .text.digitalObtainPinConfig
-                0x000000001a0019f8       0x98 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
+                0x000000001a0013bc       0x98 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
  .text.digitalConfig
-                0x000000001a001a90      0x1ac ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
-                0x000000001a001a90                digitalConfig
+                0x000000001a001454      0x1ac ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
+                0x000000001a001454                digitalConfig
  .text.pwmInitTimers
-                0x000000001a001c3c       0x10 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
+                0x000000001a001600       0x10 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
  .text.pwmAttach
-                0x000000001a001c4c       0x60 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
+                0x000000001a001610       0x60 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
  .text.pwmDetach
-                0x000000001a001cac       0x40 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
+                0x000000001a001670       0x40 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
  .text.pwmWrite
-                0x000000001a001cec       0x4c ./out/lib/sapi_bm.a(sAPI_Pwm.o)
-                0x000000001a001cec                pwmWrite
+                0x000000001a0016b0       0x4c ./out/lib/sapi_bm.a(sAPI_Pwm.o)
+                0x000000001a0016b0                pwmWrite
  .text.pwmConfig
-                0x000000001a001d38       0x68 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
-                0x000000001a001d38                pwmConfig
+                0x000000001a0016fc       0x68 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
+                0x000000001a0016fc                pwmConfig
  .text.pwmIsAttached
-                0x000000001a001da0       0x50 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
-                0x000000001a001da0                pwmIsAttached
+                0x000000001a001764       0x50 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
+                0x000000001a001764                pwmIsAttached
  .text.Chip_SCU_PinMuxSet
-                0x000000001a001df0       0x34 ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a0017b4       0x34 ./out/lib/sapi_bm.a(sAPI_Sct.o)
  .text.Chip_SCU_PinMux
-                0x000000001a001e24       0x3c ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a0017e8       0x3c ./out/lib/sapi_bm.a(sAPI_Sct.o)
  .text.Chip_SCT_ClearControl
-                0x000000001a001e60       0x24 ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a001824       0x24 ./out/lib/sapi_bm.a(sAPI_Sct.o)
  .text.Chip_SCT_SetMatchReload
-                0x000000001a001e84       0x28 ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a001848       0x28 ./out/lib/sapi_bm.a(sAPI_Sct.o)
  .text.Chip_SCTPWM_GetTicksPerCycle
-                0x000000001a001eac       0x1c ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a001870       0x1c ./out/lib/sapi_bm.a(sAPI_Sct.o)
  .text.Chip_SCTPWM_PercentageToTicks
-                0x000000001a001ec8       0x30 ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a00188c       0x30 ./out/lib/sapi_bm.a(sAPI_Sct.o)
  .text.Chip_SCTPWM_SetDutyCycle
-                0x000000001a001ef8       0x24 ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a0018bc       0x24 ./out/lib/sapi_bm.a(sAPI_Sct.o)
  .text.Chip_SCTPWM_Init
-                0x000000001a001f1c       0x18 ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a0018e0       0x18 ./out/lib/sapi_bm.a(sAPI_Sct.o)
  .text.Chip_SCTPWM_Start
-                0x000000001a001f34       0x1c ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a0018f8       0x1c ./out/lib/sapi_bm.a(sAPI_Sct.o)
  .text.Sct_Init
-                0x000000001a001f50       0x2c ./out/lib/sapi_bm.a(sAPI_Sct.o)
-                0x000000001a001f50                Sct_Init
+                0x000000001a001914       0x2c ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a001914                Sct_Init
  .text.Sct_EnablePwmFor
-                0x000000001a001f7c       0x60 ./out/lib/sapi_bm.a(sAPI_Sct.o)
-                0x000000001a001f7c                Sct_EnablePwmFor
+                0x000000001a001940       0x60 ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a001940                Sct_EnablePwmFor
  .text.Sct_Uint8ToTicks
-                0x000000001a001fdc       0x30 ./out/lib/sapi_bm.a(sAPI_Sct.o)
-                0x000000001a001fdc                Sct_Uint8ToTicks
+                0x000000001a0019a0       0x30 ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a0019a0                Sct_Uint8ToTicks
  .text.Sct_SetDutyCycle
-                0x000000001a00200c       0x34 ./out/lib/sapi_bm.a(sAPI_Sct.o)
-                0x000000001a00200c                Sct_SetDutyCycle
+                0x000000001a0019d0       0x34 ./out/lib/sapi_bm.a(sAPI_Sct.o)
+                0x000000001a0019d0                Sct_SetDutyCycle
  .text.NVIC_SetPriority
-                0x000000001a002040       0x54 ./out/lib/sapi_bm.a(sAPI_Tick.o)
+                0x000000001a001a04       0x54 ./out/lib/sapi_bm.a(sAPI_Tick.o)
  .text.SysTick_Config
-                0x000000001a002094       0x44 ./out/lib/sapi_bm.a(sAPI_Tick.o)
+                0x000000001a001a58       0x44 ./out/lib/sapi_bm.a(sAPI_Tick.o)
  .text.tickConfig
-                0x000000001a0020d8       0x98 ./out/lib/sapi_bm.a(sAPI_Tick.o)
-                0x000000001a0020d8                tickConfig
+                0x000000001a001a9c       0x98 ./out/lib/sapi_bm.a(sAPI_Tick.o)
+                0x000000001a001a9c                tickConfig
  .text.tickRead
-                0x000000001a002170       0x18 ./out/lib/sapi_bm.a(sAPI_Tick.o)
-                0x000000001a002170                tickRead
+                0x000000001a001b34       0x18 ./out/lib/sapi_bm.a(sAPI_Tick.o)
+                0x000000001a001b34                tickRead
  .text.NVIC_EnableIRQ
-                0x000000001a002188       0x34 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001b4c       0x34 ./out/lib/sapi_bm.a(sAPI_Uart.o)
  .text.NVIC_SetPriority
-                0x000000001a0021bc       0x54 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001b80       0x54 ./out/lib/sapi_bm.a(sAPI_Uart.o)
  .text.Chip_SCU_PinMuxSet
-                0x000000001a002210       0x34 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001bd4       0x34 ./out/lib/sapi_bm.a(sAPI_Uart.o)
  .text.Chip_SCU_PinMux
-                0x000000001a002244       0x3c ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001c08       0x3c ./out/lib/sapi_bm.a(sAPI_Uart.o)
  .text.Chip_UART_TXEnable
-                0x000000001a002280       0x1c ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001c44       0x1c ./out/lib/sapi_bm.a(sAPI_Uart.o)
  .text.Chip_UART_SendByte
-                0x000000001a00229c       0x20 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001c60       0x20 ./out/lib/sapi_bm.a(sAPI_Uart.o)
  .text.Chip_UART_ReadByte
-                0x000000001a0022bc       0x1c ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001c80       0x1c ./out/lib/sapi_bm.a(sAPI_Uart.o)
  .text.Chip_UART_IntEnable
-                0x000000001a0022d8       0x24 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001c9c       0x24 ./out/lib/sapi_bm.a(sAPI_Uart.o)
  .text.Chip_UART_SetupFIFOS
-                0x000000001a0022fc       0x1c ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001cc0       0x1c ./out/lib/sapi_bm.a(sAPI_Uart.o)
  .text.Chip_UART_ReadLineStatus
-                0x000000001a002318       0x18 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001cdc       0x18 ./out/lib/sapi_bm.a(sAPI_Uart.o)
  .text.uartConfig
-                0x000000001a002330      0x110 ./out/lib/sapi_bm.a(sAPI_Uart.o)
-                0x000000001a002330                uartConfig
+                0x000000001a001cf4      0x110 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001cf4                uartConfig
  .text.uartReadByte
-                0x000000001a002440       0x90 ./out/lib/sapi_bm.a(sAPI_Uart.o)
-                0x000000001a002440                uartReadByte
+                0x000000001a001e04       0x90 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001e04                uartReadByte
  .text.uartWriteByte
-                0x000000001a0024d0       0x90 ./out/lib/sapi_bm.a(sAPI_Uart.o)
-                0x000000001a0024d0                uartWriteByte
+                0x000000001a001e94       0x90 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001e94                uartWriteByte
  .text.uartWriteString
-                0x000000001a002560       0x34 ./out/lib/sapi_bm.a(sAPI_Uart.o)
-                0x000000001a002560                uartWriteString
+                0x000000001a001f24       0x34 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001f24                uartWriteString
  .text.UART2_IRQHandler
-                0x000000001a002594       0x10 ./out/lib/sapi_bm.a(sAPI_Uart.o)
-                0x000000001a002594                UART2_IRQHandler
+                0x000000001a001f58       0x10 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001f58                UART2_IRQHandler
  .text.UART3_IRQHandler
-                0x000000001a0025a4       0x1c ./out/lib/sapi_bm.a(sAPI_Uart.o)
-                0x000000001a0025a4                UART3_IRQHandler
+                0x000000001a001f68       0x1c ./out/lib/sapi_bm.a(sAPI_Uart.o)
+                0x000000001a001f68                UART3_IRQHandler
  .text.sAPI_NullFuncPtr
-                0x000000001a0025c0       0x18 ./out/lib/sapi_bm.a(sAPI_DataTypes.o)
-                0x000000001a0025c0                sAPI_NullFuncPtr
+                0x000000001a001f84       0x18 ./out/lib/sapi_bm.a(sAPI_DataTypes.o)
+                0x000000001a001f84                sAPI_NullFuncPtr
  .text.getFullConvClk
-                0x000000001a0025d8       0x10 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a001f9c       0x10 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
  .text.Chip_ADC_GetClockIndex
-                0x000000001a0025e8       0x2c ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a001fac       0x2c ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
  .text.getClkDiv
-                0x000000001a002614       0x68 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a001fd8       0x68 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
  .text.setStartMode
-                0x000000001a00267c       0x30 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
-                0x000000001a00267c                setStartMode
+                0x000000001a002040       0x30 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a002040                setStartMode
  .text.readAdcVal
-                0x000000001a0026ac       0x44 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
-                0x000000001a0026ac                readAdcVal
+                0x000000001a002070       0x44 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a002070                readAdcVal
  .text.Chip_ADC_Init
-                0x000000001a0026f0       0x88 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
-                0x000000001a0026f0                Chip_ADC_Init
+                0x000000001a0020b4       0x88 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a0020b4                Chip_ADC_Init
  .text.Chip_ADC_DeInit
-                0x000000001a002778       0x2c ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
-                0x000000001a002778                Chip_ADC_DeInit
+                0x000000001a00213c       0x2c ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a00213c                Chip_ADC_DeInit
  .text.Chip_ADC_ReadValue
-                0x000000001a0027a4       0x24 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
-                0x000000001a0027a4                Chip_ADC_ReadValue
+                0x000000001a002168       0x24 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a002168                Chip_ADC_ReadValue
  .text.Chip_ADC_ReadStatus
-                0x000000001a0027c8       0x78 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
-                0x000000001a0027c8                Chip_ADC_ReadStatus
+                0x000000001a00218c       0x78 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a00218c                Chip_ADC_ReadStatus
  .text.Chip_ADC_Int_SetChannelCmd
-                0x000000001a002840       0x4c ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
-                0x000000001a002840                Chip_ADC_Int_SetChannelCmd
+                0x000000001a002204       0x4c ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a002204                Chip_ADC_Int_SetChannelCmd
  .text.Chip_ADC_SetStartMode
-                0x000000001a00288c       0x50 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
-                0x000000001a00288c                Chip_ADC_SetStartMode
+                0x000000001a002250       0x50 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a002250                Chip_ADC_SetStartMode
  .text.Chip_ADC_SetSampleRate
-                0x000000001a0028dc       0x64 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
-                0x000000001a0028dc                Chip_ADC_SetSampleRate
+                0x000000001a0022a0       0x64 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a0022a0                Chip_ADC_SetSampleRate
  .text.Chip_ADC_EnableChannel
-                0x000000001a002940       0x58 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
-                0x000000001a002940                Chip_ADC_EnableChannel
+                0x000000001a002304       0x58 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a002304                Chip_ADC_EnableChannel
  .text.Chip_ADC_SetBurstCmd
-                0x000000001a002998       0x3c ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
-                0x000000001a002998                Chip_ADC_SetBurstCmd
+                0x000000001a00235c       0x3c ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+                0x000000001a00235c                Chip_ADC_SetBurstCmd
  .text.SystemCoreClockUpdate
-                0x000000001a0029d4       0x18 ./out/lib/ext_drivers.a(chip_18xx_43xx.o)
-                0x000000001a0029d4                SystemCoreClockUpdate
- .text.ABS      0x000000001a0029ec       0x24 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002398       0x18 ./out/lib/ext_drivers.a(chip_18xx_43xx.o)
+                0x000000001a002398                SystemCoreClockUpdate
+ .text.ABS      0x000000001a0023b0       0x24 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
  .text.pll_calc_divs
-                0x000000001a002a10      0x124 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a0023d4      0x124 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
  .text.pll_get_frac
-                0x000000001a002b34      0x178 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a0024f8      0x178 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
  .text.Chip_Clock_GetDivRate
-                0x000000001a002cac       0x40 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002670       0x40 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
  .text.Chip_Clock_FindBaseClock
-                0x000000001a002cec       0x90 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a0026b0       0x90 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
  .text.Chip_Clock_EnableCrystal
-                0x000000001a002d7c       0x70 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a002d7c                Chip_Clock_EnableCrystal
+                0x000000001a002740       0x70 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002740                Chip_Clock_EnableCrystal
  .text.Chip_Clock_CalcMainPLLValue
-                0x000000001a002dec       0xd8 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a002dec                Chip_Clock_CalcMainPLLValue
+                0x000000001a0027b0       0xd8 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a0027b0                Chip_Clock_CalcMainPLLValue
  .text.Chip_Clock_GetMainPLLHz
-                0x000000001a002ec4       0xc0 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a002ec4                Chip_Clock_GetMainPLLHz
+                0x000000001a002888       0xc0 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002888                Chip_Clock_GetMainPLLHz
  .text.Chip_Clock_GetDividerSource
-                0x000000001a002f84       0x40 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a002f84                Chip_Clock_GetDividerSource
+                0x000000001a002948       0x40 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002948                Chip_Clock_GetDividerSource
  .text.Chip_Clock_GetDividerDivisor
-                0x000000001a002fc4       0x38 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a002fc4                Chip_Clock_GetDividerDivisor
+                0x000000001a002988       0x38 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002988                Chip_Clock_GetDividerDivisor
  .text.Chip_Clock_GetClockInputHz
-                0x000000001a002ffc      0x140 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a002ffc                Chip_Clock_GetClockInputHz
+                0x000000001a0029c0      0x140 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a0029c0                Chip_Clock_GetClockInputHz
  .text.Chip_Clock_GetBaseClocktHz
-                0x000000001a00313c       0x24 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a00313c                Chip_Clock_GetBaseClocktHz
+                0x000000001a002b00       0x24 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002b00                Chip_Clock_GetBaseClocktHz
  .text.Chip_Clock_SetBaseClock
-                0x000000001a003160       0x9c ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a003160                Chip_Clock_SetBaseClock
+                0x000000001a002b24       0x9c ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002b24                Chip_Clock_SetBaseClock
  .text.Chip_Clock_GetBaseClock
-                0x000000001a0031fc       0x4c ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a0031fc                Chip_Clock_GetBaseClock
+                0x000000001a002bc0       0x4c ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002bc0                Chip_Clock_GetBaseClock
  .text.Chip_Clock_EnableOpts
-                0x000000001a003248       0x7c ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a003248                Chip_Clock_EnableOpts
+                0x000000001a002c0c       0x7c ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002c0c                Chip_Clock_EnableOpts
  .text.Chip_Clock_Disable
-                0x000000001a0032c4       0x60 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a0032c4                Chip_Clock_Disable
+                0x000000001a002c88       0x60 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002c88                Chip_Clock_Disable
  .text.Chip_Clock_GetRate
-                0x000000001a003324       0x88 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
-                0x000000001a003324                Chip_Clock_GetRate
+                0x000000001a002ce8       0x88 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+                0x000000001a002ce8                Chip_Clock_GetRate
  .text.ResetISR
-                0x000000001a0033ac       0xe4 ./out/lib/ext_drivers.a(cr_startup_lpc43xx.o)
-                0x000000001a0033ac                ResetISR
+                0x000000001a002d70       0xe4 ./out/lib/ext_drivers.a(cr_startup_lpc43xx.o)
+                0x000000001a002d70                ResetISR
  .text.Chip_DAC_Init
-                0x000000001a003490       0x24 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
-                0x000000001a003490                Chip_DAC_Init
+                0x000000001a002e54       0x24 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
+                0x000000001a002e54                Chip_DAC_Init
  .text.Chip_DAC_DeInit
-                0x000000001a0034b4       0x18 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
-                0x000000001a0034b4                Chip_DAC_DeInit
+                0x000000001a002e78       0x18 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
+                0x000000001a002e78                Chip_DAC_DeInit
  .text.Chip_DAC_UpdateValue
-                0x000000001a0034cc       0x34 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
-                0x000000001a0034cc                Chip_DAC_UpdateValue
+                0x000000001a002e90       0x34 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
+                0x000000001a002e90                Chip_DAC_UpdateValue
  .text.Chip_DAC_SetBias
-                0x000000001a003500       0x34 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
-                0x000000001a003500                Chip_DAC_SetBias
+                0x000000001a002ec4       0x34 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
+                0x000000001a002ec4                Chip_DAC_SetBias
  .text.Chip_GPIO_Init
-                0x000000001a003534       0x14 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
-                0x000000001a003534                Chip_GPIO_Init
+                0x000000001a002ef8       0x14 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
+                0x000000001a002ef8                Chip_GPIO_Init
  .text.Chip_GPIO_SetDir
-                0x000000001a003548       0x64 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
-                0x000000001a003548                Chip_GPIO_SetDir
+                0x000000001a002f0c       0x64 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
+                0x000000001a002f0c                Chip_GPIO_SetDir
  .text.Chip_SCT_Init
-                0x000000001a0035ac       0x1c ./out/lib/ext_drivers.a(sct_18xx_43xx.o)
-                0x000000001a0035ac                Chip_SCT_Init
+                0x000000001a002f70       0x1c ./out/lib/ext_drivers.a(sct_18xx_43xx.o)
+                0x000000001a002f70                Chip_SCT_Init
  .text.Chip_SCT_Config
-                0x000000001a0035c8       0x1c ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
+                0x000000001a002f8c       0x1c ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
  .text.Chip_SCT_SetMatchCount
-                0x000000001a0035e4       0x28 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
+                0x000000001a002fa8       0x28 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
  .text.Chip_SCT_SetControl
-                0x000000001a00360c       0x24 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
+                0x000000001a002fd0       0x24 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
  .text.Chip_SCT_SetMatchReload
-                0x000000001a003630       0x28 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
+                0x000000001a002ff4       0x28 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
  .text.Chip_SCTPWM_Stop
-                0x000000001a003658       0x24 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
+                0x000000001a00301c       0x24 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
  .text.Chip_SCTPWM_SetOutPin
-                0x000000001a00367c       0x9c ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
-                0x000000001a00367c                Chip_SCTPWM_SetOutPin
+                0x000000001a003040       0x9c ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
+                0x000000001a003040                Chip_SCTPWM_SetOutPin
  .text.Chip_SCTPWM_SetRate
-                0x000000001a003718       0x70 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
-                0x000000001a003718                Chip_SCTPWM_SetRate
+                0x000000001a0030dc       0x70 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
+                0x000000001a0030dc                Chip_SCTPWM_SetRate
  .text.SystemInit
-                0x000000001a003788       0x20 ./out/lib/ext_drivers.a(sysinit.o)
-                0x000000001a003788                SystemInit
+                0x000000001a00314c       0x20 ./out/lib/ext_drivers.a(sysinit.o)
+                0x000000001a00314c                SystemInit
  .text.Chip_Clock_DisableMainPLL
-                0x000000001a0037a8       0x20 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
+                0x000000001a00316c       0x20 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
  .text.Chip_Clock_SetupMainPLL
-                0x000000001a0037c8       0x44 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
+                0x000000001a00318c       0x44 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
  .text.Chip_Clock_MainPLLLocked
-                0x000000001a00380c       0x24 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
+                0x000000001a0031d0       0x24 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
  .text.Chip_SetupCoreClock
-                0x000000001a003830      0x15c ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
-                0x000000001a003830                Chip_SetupCoreClock
+                0x000000001a0031f4      0x15c ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
+                0x000000001a0031f4                Chip_SetupCoreClock
  .text.Chip_SetupIrcClocking
-                0x000000001a00398c       0x18 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
-                0x000000001a00398c                Chip_SetupIrcClocking
+                0x000000001a003350       0x18 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
+                0x000000001a003350                Chip_SetupIrcClocking
  .text.Chip_SystemInit
-                0x000000001a0039a4        0xc ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
-                0x000000001a0039a4                Chip_SystemInit
+                0x000000001a003368        0xc ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
+                0x000000001a003368                Chip_SystemInit
  .text.Chip_UART_TXDisable
-                0x000000001a0039b0       0x1c ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+                0x000000001a003374       0x1c ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
  .text.Chip_UART_SetupFIFOS
-                0x000000001a0039cc       0x1c ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+                0x000000001a003390       0x1c ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
  .text.Chip_UART_ConfigData
-                0x000000001a0039e8       0x1c ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+                0x000000001a0033ac       0x1c ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
  .text.Chip_UART_EnableDivisorAccess
-                0x000000001a003a04       0x20 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+                0x000000001a0033c8       0x20 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
  .text.Chip_UART_DisableDivisorAccess
-                0x000000001a003a24       0x20 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+                0x000000001a0033e8       0x20 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
  .text.Chip_UART_SetDivisorLatches
-                0x000000001a003a44       0x28 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+                0x000000001a003408       0x28 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
  .text.Chip_UART_GetIndex
-                0x000000001a003a6c       0x60 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+                0x000000001a003430       0x60 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
  .text.Chip_UART_Init
-                0x000000001a003acc       0x84 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
-                0x000000001a003acc                Chip_UART_Init
+                0x000000001a003490       0x84 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+                0x000000001a003490                Chip_UART_Init
  .text.Chip_UART_SetBaud
-                0x000000001a003b50       0x6c ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
-                0x000000001a003b50                Chip_UART_SetBaud
- .text.fpuInit  0x000000001a003bbc       0x74 ./out/lib/ext_drivers.a(fpu_init.o)
-                0x000000001a003bbc                fpuInit
+                0x000000001a003514       0x6c ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+                0x000000001a003514                Chip_UART_SetBaud
+ .text.fpuInit  0x000000001a003580       0x74 ./out/lib/ext_drivers.a(fpu_init.o)
+                0x000000001a003580                fpuInit
  .text.Chip_TIMER_MatchPending
-                0x000000001a003c30       0x34 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+                0x000000001a0035f4       0x34 ./out/lib/sapi_bm.a(sAPI_Timer.o)
  .text.Chip_TIMER_ClearMatch
-                0x000000001a003c64       0x28 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+                0x000000001a003628       0x28 ./out/lib/sapi_bm.a(sAPI_Timer.o)
  .text.errorOcurred
-                0x000000001a003c8c        0x8 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+                0x000000001a003650        0x8 ./out/lib/sapi_bm.a(sAPI_Timer.o)
  .text.doNothing
-                0x000000001a003c94       0x10 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+                0x000000001a003658       0x10 ./out/lib/sapi_bm.a(sAPI_Timer.o)
  .text.TIMER0_IRQHandler
-                0x000000001a003ca4       0x54 ./out/lib/sapi_bm.a(sAPI_Timer.o)
-                0x000000001a003ca4                TIMER0_IRQHandler
+                0x000000001a003668       0x54 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+                0x000000001a003668                TIMER0_IRQHandler
  .text.TIMER1_IRQHandler
-                0x000000001a003cf8       0x58 ./out/lib/sapi_bm.a(sAPI_Timer.o)
-                0x000000001a003cf8                TIMER1_IRQHandler
+                0x000000001a0036bc       0x58 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+                0x000000001a0036bc                TIMER1_IRQHandler
  .text.TIMER2_IRQHandler
-                0x000000001a003d50       0x58 ./out/lib/sapi_bm.a(sAPI_Timer.o)
-                0x000000001a003d50                TIMER2_IRQHandler
+                0x000000001a003714       0x58 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+                0x000000001a003714                TIMER2_IRQHandler
  .text.TIMER3_IRQHandler
-                0x000000001a003da8       0x58 ./out/lib/sapi_bm.a(sAPI_Timer.o)
-                0x000000001a003da8                TIMER3_IRQHandler
- .text          0x000000001a003e00      0x370 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_arm_addsubdf3.o)
-                0x000000001a003e00                __aeabi_drsub
-                0x000000001a003e08                __subdf3
-                0x000000001a003e08                __aeabi_dsub
-                0x000000001a003e0c                __aeabi_dadd
-                0x000000001a003e0c                __adddf3
-                0x000000001a004084                __aeabi_ui2d
-                0x000000001a004084                __floatunsidf
-                0x000000001a0040a4                __floatsidf
-                0x000000001a0040a4                __aeabi_i2d
-                0x000000001a0040c8                __extendsfdf2
-                0x000000001a0040c8                __aeabi_f2d
-                0x000000001a004104                __aeabi_ul2d
-                0x000000001a004104                __floatundidf
-                0x000000001a004114                __aeabi_l2d
-                0x000000001a004114                __floatdidf
- .text          0x000000001a004170      0x424 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_arm_muldivdf3.o)
-                0x000000001a004170                __aeabi_dmul
-                0x000000001a004170                __muldf3
-                0x000000001a0043c4                __aeabi_ddiv
-                0x000000001a0043c4                __divdf3
- .text          0x000000001a004594       0x40 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_arm_fixunsdfsi.o)
-                0x000000001a004594                __fixunsdfsi
-                0x000000001a004594                __aeabi_d2uiz
- .text          0x000000001a0045d4       0x30 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_aeabi_uldivmod.o)
-                0x000000001a0045d4                __aeabi_uldivmod
- .text          0x000000001a004604      0x2e4 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_udivmoddi4.o)
-                0x000000001a004604                __udivmoddi4
- .text          0x000000001a0048e8        0x4 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_dvmd_tls.o)
-                0x000000001a0048e8                __aeabi_ldiv0
-                0x000000001a0048e8                __aeabi_idiv0
- .text.atoi     0x000000001a0048ec        0x8 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-atoi.o)
-                0x000000001a0048ec                atoi
- .text.memset   0x000000001a0048f4       0x9c /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memset.o)
-                0x000000001a0048f4                memset
- .text.strcat   0x000000001a004990       0x40 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcat.o)
-                0x000000001a004990                strcat
- .text.strchr   0x000000001a0049d0       0xd0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strchr.o)
-                0x000000001a0049d0                strchr
- .text          0x000000001a004aa0      0x2dc /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcmp.o)
-                0x000000001a004aa8                strcmp
- .text.strcpy   0x000000001a004d7c       0xbc /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcpy.o)
-                0x000000001a004d7c                strcpy
- *fill*         0x000000001a004e38        0x8 ff
- .text          0x000000001a004e40       0xdc /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strlen.o)
-                0x000000001a004e40                strlen
- .text.critical_factorization
-                0x000000001a004f1c       0xb8 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
- .text.two_way_long_needle
-                0x000000001a004fd4      0x200 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
- .text.strstr   0x000000001a0051d4      0x220 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
-                0x000000001a0051d4                strstr
+                0x000000001a00376c       0x58 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+                0x000000001a00376c                TIMER3_IRQHandler
+ .text          0x000000001a0037c4      0x370 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_arm_addsubdf3.o)
+                0x000000001a0037c4                __aeabi_drsub
+                0x000000001a0037cc                __subdf3
+                0x000000001a0037cc                __aeabi_dsub
+                0x000000001a0037d0                __aeabi_dadd
+                0x000000001a0037d0                __adddf3
+                0x000000001a003a48                __aeabi_ui2d
+                0x000000001a003a48                __floatunsidf
+                0x000000001a003a68                __floatsidf
+                0x000000001a003a68                __aeabi_i2d
+                0x000000001a003a8c                __extendsfdf2
+                0x000000001a003a8c                __aeabi_f2d
+                0x000000001a003ac8                __aeabi_ul2d
+                0x000000001a003ac8                __floatundidf
+                0x000000001a003ad8                __aeabi_l2d
+                0x000000001a003ad8                __floatdidf
+ .text          0x000000001a003b34      0x424 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_arm_muldivdf3.o)
+                0x000000001a003b34                __aeabi_dmul
+                0x000000001a003b34                __muldf3
+                0x000000001a003d88                __aeabi_ddiv
+                0x000000001a003d88                __divdf3
+ .text          0x000000001a003f58       0x40 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_arm_fixunsdfsi.o)
+                0x000000001a003f58                __fixunsdfsi
+                0x000000001a003f58                __aeabi_d2uiz
+ .text          0x000000001a003f98       0x30 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_aeabi_uldivmod.o)
+                0x000000001a003f98                __aeabi_uldivmod
+ .text          0x000000001a003fc8      0x2e4 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_udivmoddi4.o)
+                0x000000001a003fc8                __udivmoddi4
+ .text          0x000000001a0042ac        0x4 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_dvmd_tls.o)
+                0x000000001a0042ac                __aeabi_ldiv0
+                0x000000001a0042ac                __aeabi_idiv0
+ .text.atoi     0x000000001a0042b0        0x8 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-atoi.o)
+                0x000000001a0042b0                atoi
+ .text.memset   0x000000001a0042b8       0x9c /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memset.o)
+                0x000000001a0042b8                memset
+ .text.strcat   0x000000001a004354       0x40 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcat.o)
+                0x000000001a004354                strcat
+ *fill*         0x000000001a004394        0xc ff
+ .text          0x000000001a0043a0      0x2dc /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcmp.o)
+                0x000000001a0043a8                strcmp
+ .text.strcpy   0x000000001a00467c       0xbc /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcpy.o)
+                0x000000001a00467c                strcpy
+ *fill*         0x000000001a004738        0x8 ff
+ .text          0x000000001a004740       0xdc /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strlen.o)
+                0x000000001a004740                strlen
  .text._strtol_r
-                0x000000001a0053f4      0x128 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strtol.o)
-                0x000000001a0053f4                _strtol_r
- .text.strtol   0x000000001a00551c       0x18 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strtol.o)
-                0x000000001a00551c                strtol
- *fill*         0x000000001a005534        0xc ff
- .text          0x000000001a005540       0xa0 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memchr.o)
-                0x000000001a005540                memchr
- .text.memcmp   0x000000001a0055e0       0x64 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memcmp.o)
-                0x000000001a0055e0                memcmp
+                0x000000001a00481c      0x128 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strtol.o)
+                0x000000001a00481c                _strtol_r
+ .text.strtol   0x000000001a004944       0x18 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strtol.o)
+                0x000000001a004944                strtol
  *(.rodata .rodata.* .constdata .constdata.*)
- .rodata        0x000000001a005644      0x15b ./out/obj/baremetal.o
- *fill*         0x000000001a00579f        0x1 ff
- .rodata        0x000000001a0057a0      0x39f ./out/obj/gprs.o
- *fill*         0x000000001a005b3f        0x1 ff
- .rodata        0x000000001a005b40       0xa6 ./out/obj/gps.o
- *fill*         0x000000001a005be6        0x2 ff
+ .rodata        0x000000001a00495c      0x1a4 ./out/obj/baremetal.o
+ .rodata        0x000000001a004b00      0x39f ./out/obj/gprs.o
+ *fill*         0x000000001a004e9f        0x1 ff
+ .rodata        0x000000001a004ea0       0xa6 ./out/obj/gps.o
+ *fill*         0x000000001a004f46        0x2 ff
  .rodata.digitalPinsConfig
-                0x000000001a005be8      0x136 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
-                0x000000001a005be8                digitalPinsConfig
- *fill*         0x000000001a005d1e        0x2 ff
+                0x000000001a004f48      0x136 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
+                0x000000001a004f48                digitalPinsConfig
+ *fill*         0x000000001a00507e        0x2 ff
  .rodata.pwmMap
-                0x000000001a005d20        0xb ./out/lib/sapi_bm.a(sAPI_Pwm.o)
- *fill*         0x000000001a005d2b        0x1 ff
+                0x000000001a005080        0xb ./out/lib/sapi_bm.a(sAPI_Pwm.o)
+ *fill*         0x000000001a00508b        0x1 ff
  .rodata.periph_to_base
-                0x000000001a005d2c       0x6c ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
- .rodata        0x000000001a005d98        0xa ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
- *fill*         0x000000001a005da2        0x2 ff
+                0x000000001a00508c       0x6c ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+ .rodata        0x000000001a0050f8        0xa ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+ *fill*         0x000000001a005102        0x2 ff
  .rodata.ExtRateIn
-                0x000000001a005da4        0x4 ./out/lib/ext_drivers.a(sysinit.o)
-                0x000000001a005da4                ExtRateIn
+                0x000000001a005104        0x4 ./out/lib/ext_drivers.a(sysinit.o)
+                0x000000001a005104                ExtRateIn
  .rodata.OscRateIn
-                0x000000001a005da8        0x4 ./out/lib/ext_drivers.a(sysinit.o)
-                0x000000001a005da8                OscRateIn
+                0x000000001a005108        0x4 ./out/lib/ext_drivers.a(sysinit.o)
+                0x000000001a005108                OscRateIn
  .rodata.InitClkStates
-                0x000000001a005dac       0x48 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
+                0x000000001a00510c       0x48 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
  .rodata.UART_PClock
-                0x000000001a005df4        0x8 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+                0x000000001a005154        0x8 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
  .rodata.UART_BClock
-                0x000000001a005dfc        0x8 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+                0x000000001a00515c        0x8 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
  .rodata._ctype_
-                0x000000001a005e04      0x101 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-ctype_.o)
-                0x000000001a005e04                _ctype_
- *fill*         0x000000001a005f05        0x3 ff
+                0x000000001a005164      0x101 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-ctype_.o)
+                0x000000001a005164                _ctype_
+ *fill*         0x000000001a005265        0x3 ff
  .rodata.str1.4
-                0x000000001a005f08        0x4 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-impure.o)
+                0x000000001a005268        0x4 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-impure.o)
                                           0x2 (size before relaxing)
-                0x000000001a005f0c                . = ALIGN (0x4)
+                0x000000001a00526c                . = ALIGN (0x4)
 
-.glue_7         0x000000001a005f0c        0x0
- .glue_7        0x000000001a005f0c        0x0 linker stubs
+.glue_7         0x000000001a00526c        0x0
+ .glue_7        0x000000001a00526c        0x0 linker stubs
 
-.glue_7t        0x000000001a005f0c        0x0
- .glue_7t       0x000000001a005f0c        0x0 linker stubs
+.glue_7t        0x000000001a00526c        0x0
+ .glue_7t       0x000000001a00526c        0x0 linker stubs
 
-.vfp11_veneer   0x000000001a005f0c        0x0
- .vfp11_veneer  0x000000001a005f0c        0x0 linker stubs
+.vfp11_veneer   0x000000001a00526c        0x0
+ .vfp11_veneer  0x000000001a00526c        0x0 linker stubs
 
-.v4_bx          0x000000001a005f0c        0x0
- .v4_bx         0x000000001a005f0c        0x0 linker stubs
+.v4_bx          0x000000001a00526c        0x0
+ .v4_bx         0x000000001a00526c        0x0 linker stubs
 
-.iplt           0x000000001a005f0c        0x0
- .iplt          0x000000001a005f0c        0x0 ./out/obj/baremetal.o
+.iplt           0x000000001a00526c        0x0
+ .iplt          0x000000001a00526c        0x0 ./out/obj/baremetal.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000000001a005f0c                __exidx_start = .
+                0x000000001a00526c                __exidx_start = .
 
-.ARM.exidx      0x000000001a005f0c        0x8
+.ARM.exidx      0x000000001a00526c        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x000000001a005f0c        0x8 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_udivmoddi4.o)
-                0x000000001a005f14                __exidx_end = .
-                0x000000001a005f14                _etext = .
+ .ARM.exidx     0x000000001a00526c        0x8 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_udivmoddi4.o)
+                0x000000001a005274                __exidx_end = .
+                0x000000001a005274                _etext = .
 
-.rel.dyn        0x000000001a005f14        0x0
- .rel.iplt      0x000000001a005f14        0x0 ./out/obj/baremetal.o
+.rel.dyn        0x000000001a005274        0x0
+ .rel.iplt      0x000000001a005274        0x0 ./out/obj/baremetal.o
 
-.data_RAM2      0x0000000010080000        0x0 load address 0x000000001a005f14
+.data_RAM2      0x0000000010080000        0x0 load address 0x000000001a005274
  FILL mask 0xff
  *(.ramfunc.$RAM2)
  *(.ramfunc.$RamLoc40)
@@ -3803,7 +3809,7 @@ END GROUP
  *(.data.$RamLoc40*)
                 0x0000000010080000                . = ALIGN (0x4)
 
-.data_RAM3      0x0000000020000000        0x0 load address 0x000000001a005f14
+.data_RAM3      0x0000000020000000        0x0 load address 0x000000001a005274
  FILL mask 0xff
  *(.ramfunc.$RAM3)
  *(.ramfunc.$RamAHB32)
@@ -3811,7 +3817,7 @@ END GROUP
  *(.data.$RamAHB32*)
                 0x0000000020000000                . = ALIGN (0x4)
 
-.data_RAM4      0x0000000020008000        0x0 load address 0x000000001a005f14
+.data_RAM4      0x0000000020008000        0x0 load address 0x000000001a005274
  FILL mask 0xff
  *(.ramfunc.$RAM4)
  *(.ramfunc.$RamAHB16)
@@ -3819,7 +3825,7 @@ END GROUP
  *(.data.$RamAHB16*)
                 0x0000000020008000                . = ALIGN (0x4)
 
-.data_RAM5      0x000000002000c000        0x0 load address 0x000000001a005f14
+.data_RAM5      0x000000002000c000        0x0 load address 0x000000001a005274
  FILL mask 0xff
  *(.ramfunc.$RAM5)
  *(.ramfunc.$RamAHB_ETB16)
@@ -3833,7 +3839,7 @@ END GROUP
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _end_uninit_RESERVED = .
 
-.data           0x0000000010000000      0x4a4 load address 0x000000001a005f14
+.data           0x0000000010000000      0x4a4 load address 0x000000001a005274
  FILL mask 0xff
                 0x0000000010000000                _data = .
  *(vtable)
@@ -3842,13 +3848,7 @@ END GROUP
  .data.gprsResponseFlag
                 0x0000000010000000        0x1 ./out/obj/gprs.o
                 0x0000000010000000                gprsResponseFlag
- .data.actualState
-                0x0000000010000001        0x1 ./out/obj/gprs.o
-                0x0000000010000001                actualState
- .data.sendState
-                0x0000000010000002        0x1 ./out/obj/gprs.o
-                0x0000000010000002                sendState
- *fill*         0x0000000010000003        0x1 ff
+ *fill*         0x0000000010000001        0x3 ff
  .data.AttachedPWMList
                 0x0000000010000004        0xb ./out/lib/sapi_bm.a(sAPI_Pwm.o)
  *fill*         0x000000001000000f        0x1 ff
@@ -3871,7 +3871,7 @@ END GROUP
                 0x00000000100004a4                . = ALIGN (0x4)
                 0x00000000100004a4                _edata = .
 
-.igot.plt       0x00000000100004a4        0x0 load address 0x000000001a0063b8
+.igot.plt       0x00000000100004a4        0x0 load address 0x000000001a005718
  .igot.plt      0x00000000100004a4        0x0 ./out/obj/baremetal.o
 
 .bss_RAM2       0x0000000010080000        0x0
@@ -3898,7 +3898,7 @@ END GROUP
                 0x00000000100004a8                _bss = .
  *(.bss*)
  .bss.uartBuff  0x00000000100004a8        0xa ./out/obj/baremetal.o
- .bss.tickCounter.9793
+ .bss.tickCounter.9794
                 0x00000000100004b2        0x2 ./out/obj/baremetal.o
  .bss.state     0x00000000100004b4        0x1 ./out/obj/gps.o
                 0x00000000100004b4                state
@@ -3965,34 +3965,34 @@ END GROUP
                 0x0000000010008000                PROVIDE (_vStackTop, (__top_RamLoc32 - 0x0))
 OUTPUT(./out/bin/baremetalSapi.axf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0xdc63
- .debug_info    0x0000000000000000      0xc5f ./out/obj/baremetal.o
- .debug_info    0x0000000000000c5f      0x744 ./out/obj/gprs.o
- .debug_info    0x00000000000013a3      0x983 ./out/obj/gps.o
- .debug_info    0x0000000000001d26       0x3f ./out/obj/crp.o
- .debug_info    0x0000000000001d65      0x410 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
- .debug_info    0x0000000000002175       0xbd ./out/lib/sapi_bm.a(sAPI_Board.o)
- .debug_info    0x0000000000002232      0x246 ./out/lib/sapi_bm.a(sAPI_Delay.o)
- .debug_info    0x0000000000002478      0xc47 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
- .debug_info    0x00000000000030bf      0x815 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
- .debug_info    0x00000000000038d4     0x104b ./out/lib/sapi_bm.a(sAPI_Sct.o)
- .debug_info    0x000000000000491f      0xbd5 ./out/lib/sapi_bm.a(sAPI_Tick.o)
- .debug_info    0x00000000000054f4      0xbff ./out/lib/sapi_bm.a(sAPI_Uart.o)
- .debug_info    0x00000000000060f3       0xf7 ./out/lib/sapi_bm.a(sAPI_DataTypes.o)
- .debug_info    0x00000000000061ea      0x97e ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
- .debug_info    0x0000000000006b68      0xa47 ./out/lib/ext_drivers.a(chip_18xx_43xx.o)
- .debug_info    0x00000000000075af     0x15b1 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
- .debug_info    0x0000000000008b60      0x1c8 ./out/lib/ext_drivers.a(cr_startup_lpc43xx.o)
- .debug_info    0x0000000000008d28      0x3b1 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
- .debug_info    0x00000000000090d9      0x456 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
- .debug_info    0x000000000000952f      0x989 ./out/lib/ext_drivers.a(sct_18xx_43xx.o)
- .debug_info    0x0000000000009eb8      0xa57 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
- .debug_info    0x000000000000a90f      0x5b8 ./out/lib/ext_drivers.a(sysinit.o)
- .debug_info    0x000000000000aec7      0x913 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
- .debug_info    0x000000000000b7da     0x10d9 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
- .debug_info    0x000000000000c8b3      0x145 ./out/lib/ext_drivers.a(fpu_init.o)
- .debug_info    0x000000000000c9f8       0xeb ./out/lib/sapi_bm.a(sAPI_IsrVector.o)
- .debug_info    0x000000000000cae3     0x1180 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+.debug_info     0x0000000000000000     0xdc72
+ .debug_info    0x0000000000000000      0xc6e ./out/obj/baremetal.o
+ .debug_info    0x0000000000000c6e      0x744 ./out/obj/gprs.o
+ .debug_info    0x00000000000013b2      0x983 ./out/obj/gps.o
+ .debug_info    0x0000000000001d35       0x3f ./out/obj/crp.o
+ .debug_info    0x0000000000001d74      0x410 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
+ .debug_info    0x0000000000002184       0xbd ./out/lib/sapi_bm.a(sAPI_Board.o)
+ .debug_info    0x0000000000002241      0x246 ./out/lib/sapi_bm.a(sAPI_Delay.o)
+ .debug_info    0x0000000000002487      0xc47 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
+ .debug_info    0x00000000000030ce      0x815 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
+ .debug_info    0x00000000000038e3     0x104b ./out/lib/sapi_bm.a(sAPI_Sct.o)
+ .debug_info    0x000000000000492e      0xbd5 ./out/lib/sapi_bm.a(sAPI_Tick.o)
+ .debug_info    0x0000000000005503      0xbff ./out/lib/sapi_bm.a(sAPI_Uart.o)
+ .debug_info    0x0000000000006102       0xf7 ./out/lib/sapi_bm.a(sAPI_DataTypes.o)
+ .debug_info    0x00000000000061f9      0x97e ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+ .debug_info    0x0000000000006b77      0xa47 ./out/lib/ext_drivers.a(chip_18xx_43xx.o)
+ .debug_info    0x00000000000075be     0x15b1 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+ .debug_info    0x0000000000008b6f      0x1c8 ./out/lib/ext_drivers.a(cr_startup_lpc43xx.o)
+ .debug_info    0x0000000000008d37      0x3b1 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
+ .debug_info    0x00000000000090e8      0x456 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
+ .debug_info    0x000000000000953e      0x989 ./out/lib/ext_drivers.a(sct_18xx_43xx.o)
+ .debug_info    0x0000000000009ec7      0xa57 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
+ .debug_info    0x000000000000a91e      0x5b8 ./out/lib/ext_drivers.a(sysinit.o)
+ .debug_info    0x000000000000aed6      0x913 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
+ .debug_info    0x000000000000b7e9     0x10d9 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+ .debug_info    0x000000000000c8c2      0x145 ./out/lib/ext_drivers.a(fpu_init.o)
+ .debug_info    0x000000000000ca07       0xeb ./out/lib/sapi_bm.a(sAPI_IsrVector.o)
+ .debug_info    0x000000000000caf2     0x1180 ./out/lib/sapi_bm.a(sAPI_Timer.o)
 
 .debug_abbrev   0x0000000000000000     0x2776
  .debug_abbrev  0x0000000000000000      0x1e9 ./out/obj/baremetal.o
@@ -4206,89 +4206,89 @@ OUTPUT(./out/bin/baremetalSapi.axf elf32-littlearm)
  .debug_macro   0x0000000000009526       0x1b ./out/lib/sapi_bm.a(sAPI_IsrVector.o)
  .debug_macro   0x0000000000009541      0x32a ./out/lib/sapi_bm.a(sAPI_Timer.o)
 
-.debug_line     0x0000000000000000     0xcf19
- .debug_line    0x0000000000000000      0xa31 ./out/obj/baremetal.o
- .debug_line    0x0000000000000a31      0x9ea ./out/obj/gprs.o
- .debug_line    0x000000000000141b      0xb40 ./out/obj/gps.o
- .debug_line    0x0000000000001f5b       0x4c ./out/obj/crp.o
- .debug_line    0x0000000000001fa7      0x802 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
- .debug_line    0x00000000000027a9      0x76c ./out/lib/sapi_bm.a(sAPI_Board.o)
- .debug_line    0x0000000000002f15      0x7f7 ./out/lib/sapi_bm.a(sAPI_Delay.o)
- .debug_line    0x000000000000370c      0x85f ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
- .debug_line    0x0000000000003f6b      0x843 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
- .debug_line    0x00000000000047ae      0x8b1 ./out/lib/sapi_bm.a(sAPI_Sct.o)
- .debug_line    0x000000000000505f      0x810 ./out/lib/sapi_bm.a(sAPI_Tick.o)
- .debug_line    0x000000000000586f      0xabc ./out/lib/sapi_bm.a(sAPI_Uart.o)
- .debug_line    0x000000000000632b      0x774 ./out/lib/sapi_bm.a(sAPI_DataTypes.o)
- .debug_line    0x0000000000006a9f      0x8ad ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
- .debug_line    0x000000000000734c      0x7c6 ./out/lib/ext_drivers.a(chip_18xx_43xx.o)
- .debug_line    0x0000000000007b12      0xbc3 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
- .debug_line    0x00000000000086d5       0xe3 ./out/lib/ext_drivers.a(cr_startup_lpc43xx.o)
- .debug_line    0x00000000000087b8      0x796 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
- .debug_line    0x0000000000008f4e      0x817 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
- .debug_line    0x0000000000009765      0x797 ./out/lib/ext_drivers.a(sct_18xx_43xx.o)
- .debug_line    0x0000000000009efc      0x7e3 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
- .debug_line    0x000000000000a6df      0x75a ./out/lib/ext_drivers.a(sysinit.o)
- .debug_line    0x000000000000ae39      0x834 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
- .debug_line    0x000000000000b66d      0xaa3 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
- .debug_line    0x000000000000c110      0x372 ./out/lib/ext_drivers.a(fpu_init.o)
- .debug_line    0x000000000000c482       0xb0 ./out/lib/sapi_bm.a(sAPI_IsrVector.o)
- .debug_line    0x000000000000c532      0x9e7 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+.debug_line     0x0000000000000000     0xcf13
+ .debug_line    0x0000000000000000      0xa2b ./out/obj/baremetal.o
+ .debug_line    0x0000000000000a2b      0x9ea ./out/obj/gprs.o
+ .debug_line    0x0000000000001415      0xb40 ./out/obj/gps.o
+ .debug_line    0x0000000000001f55       0x4c ./out/obj/crp.o
+ .debug_line    0x0000000000001fa1      0x802 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
+ .debug_line    0x00000000000027a3      0x76c ./out/lib/sapi_bm.a(sAPI_Board.o)
+ .debug_line    0x0000000000002f0f      0x7f7 ./out/lib/sapi_bm.a(sAPI_Delay.o)
+ .debug_line    0x0000000000003706      0x85f ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
+ .debug_line    0x0000000000003f65      0x843 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
+ .debug_line    0x00000000000047a8      0x8b1 ./out/lib/sapi_bm.a(sAPI_Sct.o)
+ .debug_line    0x0000000000005059      0x810 ./out/lib/sapi_bm.a(sAPI_Tick.o)
+ .debug_line    0x0000000000005869      0xabc ./out/lib/sapi_bm.a(sAPI_Uart.o)
+ .debug_line    0x0000000000006325      0x774 ./out/lib/sapi_bm.a(sAPI_DataTypes.o)
+ .debug_line    0x0000000000006a99      0x8ad ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+ .debug_line    0x0000000000007346      0x7c6 ./out/lib/ext_drivers.a(chip_18xx_43xx.o)
+ .debug_line    0x0000000000007b0c      0xbc3 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+ .debug_line    0x00000000000086cf       0xe3 ./out/lib/ext_drivers.a(cr_startup_lpc43xx.o)
+ .debug_line    0x00000000000087b2      0x796 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
+ .debug_line    0x0000000000008f48      0x817 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
+ .debug_line    0x000000000000975f      0x797 ./out/lib/ext_drivers.a(sct_18xx_43xx.o)
+ .debug_line    0x0000000000009ef6      0x7e3 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
+ .debug_line    0x000000000000a6d9      0x75a ./out/lib/ext_drivers.a(sysinit.o)
+ .debug_line    0x000000000000ae33      0x834 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
+ .debug_line    0x000000000000b667      0xaa3 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+ .debug_line    0x000000000000c10a      0x372 ./out/lib/ext_drivers.a(fpu_init.o)
+ .debug_line    0x000000000000c47c       0xb0 ./out/lib/sapi_bm.a(sAPI_IsrVector.o)
+ .debug_line    0x000000000000c52c      0x9e7 ./out/lib/sapi_bm.a(sAPI_Timer.o)
 
-.debug_str      0x0000000000000000    0x1af6b
- .debug_str     0x0000000000000000    0x157a6 ./out/obj/baremetal.o
-                                      0x159c1 (size before relaxing)
- .debug_str     0x00000000000157a6     0x2a5c ./out/obj/gprs.o
+.debug_str      0x0000000000000000    0x1af75
+ .debug_str     0x0000000000000000    0x157b0 ./out/obj/baremetal.o
+                                      0x159cb (size before relaxing)
+ .debug_str     0x00000000000157b0     0x2a5c ./out/obj/gprs.o
                                       0x17fc6 (size before relaxing)
- .debug_str     0x0000000000018202      0x362 ./out/obj/gps.o
+ .debug_str     0x000000000001820c      0x362 ./out/obj/gps.o
                                       0x1822e (size before relaxing)
- .debug_str     0x0000000000018564       0x4b ./out/obj/crp.o
+ .debug_str     0x000000000001856e       0x4b ./out/obj/crp.o
                                        0x2572 (size before relaxing)
- .debug_str     0x00000000000185af      0x2a1 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
+ .debug_str     0x00000000000185b9      0x2a1 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
                                       0x14b3e (size before relaxing)
- .debug_str     0x0000000000018850       0x2f ./out/lib/sapi_bm.a(sAPI_Board.o)
+ .debug_str     0x000000000001885a       0x2f ./out/lib/sapi_bm.a(sAPI_Board.o)
                                       0x147ce (size before relaxing)
- .debug_str     0x000000000001887f       0x88 ./out/lib/sapi_bm.a(sAPI_Delay.o)
+ .debug_str     0x0000000000018889       0x88 ./out/lib/sapi_bm.a(sAPI_Delay.o)
                                       0x148e6 (size before relaxing)
- .debug_str     0x0000000000018907      0x1d9 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
+ .debug_str     0x0000000000018911      0x1d9 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
                                       0x154a2 (size before relaxing)
- .debug_str     0x0000000000018ae0       0xfe ./out/lib/sapi_bm.a(sAPI_Pwm.o)
+ .debug_str     0x0000000000018aea       0xfe ./out/lib/sapi_bm.a(sAPI_Pwm.o)
                                       0x153fc (size before relaxing)
- .debug_str     0x0000000000018bde      0x334 ./out/lib/sapi_bm.a(sAPI_Sct.o)
+ .debug_str     0x0000000000018be8      0x334 ./out/lib/sapi_bm.a(sAPI_Sct.o)
                                       0x156b8 (size before relaxing)
- .debug_str     0x0000000000018f12      0x481 ./out/lib/sapi_bm.a(sAPI_Tick.o)
+ .debug_str     0x0000000000018f1c      0x481 ./out/lib/sapi_bm.a(sAPI_Tick.o)
                                       0x15741 (size before relaxing)
- .debug_str     0x0000000000019393      0x1f3 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+ .debug_str     0x000000000001939d      0x1f3 ./out/lib/sapi_bm.a(sAPI_Uart.o)
                                       0x17b7f (size before relaxing)
- .debug_str     0x0000000000019586       0x38 ./out/lib/sapi_bm.a(sAPI_DataTypes.o)
+ .debug_str     0x0000000000019590       0x38 ./out/lib/sapi_bm.a(sAPI_DataTypes.o)
                                       0x14822 (size before relaxing)
- .debug_str     0x00000000000195be      0x2a6 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+ .debug_str     0x00000000000195c8      0x2a6 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
                                       0x15037 (size before relaxing)
- .debug_str     0x0000000000019864      0x275 ./out/lib/ext_drivers.a(chip_18xx_43xx.o)
+ .debug_str     0x000000000001986e      0x275 ./out/lib/ext_drivers.a(chip_18xx_43xx.o)
                                       0x1550a (size before relaxing)
- .debug_str     0x0000000000019ad9      0x635 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+ .debug_str     0x0000000000019ae3      0x635 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
                                       0x15a97 (size before relaxing)
- .debug_str     0x000000000001a10e      0x175 ./out/lib/ext_drivers.a(cr_startup_lpc43xx.o)
+ .debug_str     0x000000000001a118      0x175 ./out/lib/ext_drivers.a(cr_startup_lpc43xx.o)
                                        0x26a7 (size before relaxing)
- .debug_str     0x000000000001a283       0xd3 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
+ .debug_str     0x000000000001a28d       0xd3 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
                                       0x14c62 (size before relaxing)
- .debug_str     0x000000000001a356      0x139 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
+ .debug_str     0x000000000001a360      0x139 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
                                       0x14916 (size before relaxing)
- .debug_str     0x000000000001a48f       0x94 ./out/lib/ext_drivers.a(sct_18xx_43xx.o)
+ .debug_str     0x000000000001a499       0x94 ./out/lib/ext_drivers.a(sct_18xx_43xx.o)
                                       0x14e24 (size before relaxing)
- .debug_str     0x000000000001a523       0xb3 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
+ .debug_str     0x000000000001a52d       0xb3 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
                                       0x14eb0 (size before relaxing)
- .debug_str     0x000000000001a5d6       0x33 ./out/lib/ext_drivers.a(sysinit.o)
+ .debug_str     0x000000000001a5e0       0x33 ./out/lib/ext_drivers.a(sysinit.o)
                                       0x15213 (size before relaxing)
- .debug_str     0x000000000001a609      0x109 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
+ .debug_str     0x000000000001a613      0x109 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
                                       0x154d9 (size before relaxing)
- .debug_str     0x000000000001a712      0x328 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+ .debug_str     0x000000000001a71c      0x328 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
                                       0x15652 (size before relaxing)
- .debug_str     0x000000000001aa3a       0xd7 ./out/lib/ext_drivers.a(fpu_init.o)
+ .debug_str     0x000000000001aa44       0xd7 ./out/lib/ext_drivers.a(fpu_init.o)
                                        0x90a9 (size before relaxing)
- .debug_str     0x000000000001ab11       0xa6 ./out/lib/sapi_bm.a(sAPI_IsrVector.o)
+ .debug_str     0x000000000001ab1b       0xa6 ./out/lib/sapi_bm.a(sAPI_IsrVector.o)
                                        0x25e5 (size before relaxing)
- .debug_str     0x000000000001abb7      0x3b4 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+ .debug_str     0x000000000001abc1      0x3b4 ./out/lib/sapi_bm.a(sAPI_Timer.o)
                                       0x15a37 (size before relaxing)
 
 .comment        0x0000000000000000       0x6e
@@ -4396,61 +4396,50 @@ OUTPUT(./out/bin/baremetalSapi.axf elf32-littlearm)
  .ARM.attributes
                 0x000000000000070d       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcat.o)
  .ARM.attributes
-                0x000000000000073f       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strchr.o)
+                0x000000000000073f       0x20 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcmp.o)
  .ARM.attributes
-                0x0000000000000771       0x20 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcmp.o)
+                0x000000000000075f       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcpy.o)
  .ARM.attributes
-                0x0000000000000791       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcpy.o)
+                0x0000000000000791       0x20 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strlen.o)
  .ARM.attributes
-                0x00000000000007c3       0x20 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strlen.o)
+                0x00000000000007b1       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strtol.o)
  .ARM.attributes
-                0x00000000000007e3       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
+                0x00000000000007e3       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-ctype_.o)
  .ARM.attributes
-                0x0000000000000815       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strtol.o)
- .ARM.attributes
-                0x0000000000000847       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-ctype_.o)
- .ARM.attributes
-                0x0000000000000879       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-impure.o)
- .ARM.attributes
-                0x00000000000008ab       0x20 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memchr.o)
- .ARM.attributes
-                0x00000000000008cb       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memcmp.o)
+                0x0000000000000815       0x32 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-impure.o)
 
-.debug_frame    0x0000000000000000     0x2964
- .debug_frame   0x0000000000000000      0x12c ./out/obj/baremetal.o
- .debug_frame   0x000000000000012c       0x90 ./out/obj/gprs.o
- .debug_frame   0x00000000000001bc      0x288 ./out/obj/gps.o
- .debug_frame   0x0000000000000444       0xa4 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
- .debug_frame   0x00000000000004e8       0x2c ./out/lib/sapi_bm.a(sAPI_Board.o)
- .debug_frame   0x0000000000000514       0xec ./out/lib/sapi_bm.a(sAPI_Delay.o)
- .debug_frame   0x0000000000000600      0x148 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
- .debug_frame   0x0000000000000748      0x108 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
- .debug_frame   0x0000000000000850      0x24c ./out/lib/sapi_bm.a(sAPI_Sct.o)
- .debug_frame   0x0000000000000a9c       0xf0 ./out/lib/sapi_bm.a(sAPI_Tick.o)
- .debug_frame   0x0000000000000b8c      0x290 ./out/lib/sapi_bm.a(sAPI_Uart.o)
- .debug_frame   0x0000000000000e1c       0x38 ./out/lib/sapi_bm.a(sAPI_DataTypes.o)
- .debug_frame   0x0000000000000e54      0x264 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
- .debug_frame   0x00000000000010b8       0xa0 ./out/lib/ext_drivers.a(chip_18xx_43xx.o)
- .debug_frame   0x0000000000001158      0x568 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
- .debug_frame   0x00000000000016c0       0x80 ./out/lib/ext_drivers.a(cr_startup_lpc43xx.o)
- .debug_frame   0x0000000000001740       0xa8 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
- .debug_frame   0x00000000000017e8      0x198 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
- .debug_frame   0x0000000000001980       0xa8 ./out/lib/ext_drivers.a(sct_18xx_43xx.o)
- .debug_frame   0x0000000000001a28      0x120 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
- .debug_frame   0x0000000000001b48       0x34 ./out/lib/ext_drivers.a(sysinit.o)
- .debug_frame   0x0000000000001b7c       0xf4 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
- .debug_frame   0x0000000000001c70      0x4e4 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
- .debug_frame   0x0000000000002154       0x38 ./out/lib/ext_drivers.a(fpu_init.o)
- .debug_frame   0x000000000000218c       0xd0 ./out/lib/sapi_bm.a(sAPI_IsrVector.o)
- .debug_frame   0x000000000000225c      0x3e4 ./out/lib/sapi_bm.a(sAPI_Timer.o)
- .debug_frame   0x0000000000002640       0x2c /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x000000000000266c       0x34 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_udivmoddi4.o)
- .debug_frame   0x00000000000026a0       0x30 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-atoi.o)
- .debug_frame   0x00000000000026d0       0x34 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memset.o)
- .debug_frame   0x0000000000002704       0x28 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcat.o)
- .debug_frame   0x000000000000272c       0x4c /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strchr.o)
- .debug_frame   0x0000000000002778       0x68 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcmp.o)
- .debug_frame   0x00000000000027e0       0x20 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcpy.o)
- .debug_frame   0x0000000000002800       0xd8 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strstr.o)
- .debug_frame   0x00000000000028d8       0x54 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strtol.o)
- .debug_frame   0x000000000000292c       0x38 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memcmp.o)
+.debug_frame    0x0000000000000000     0x2810
+ .debug_frame   0x0000000000000000      0x134 ./out/obj/baremetal.o
+ .debug_frame   0x0000000000000134       0x90 ./out/obj/gprs.o
+ .debug_frame   0x00000000000001c4      0x288 ./out/obj/gps.o
+ .debug_frame   0x000000000000044c       0xa4 ./out/lib/sapi_bm.a(sAPI_AnalogIO.o)
+ .debug_frame   0x00000000000004f0       0x2c ./out/lib/sapi_bm.a(sAPI_Board.o)
+ .debug_frame   0x000000000000051c       0xec ./out/lib/sapi_bm.a(sAPI_Delay.o)
+ .debug_frame   0x0000000000000608      0x148 ./out/lib/sapi_bm.a(sAPI_DigitalIO.o)
+ .debug_frame   0x0000000000000750      0x108 ./out/lib/sapi_bm.a(sAPI_Pwm.o)
+ .debug_frame   0x0000000000000858      0x24c ./out/lib/sapi_bm.a(sAPI_Sct.o)
+ .debug_frame   0x0000000000000aa4       0xf0 ./out/lib/sapi_bm.a(sAPI_Tick.o)
+ .debug_frame   0x0000000000000b94      0x290 ./out/lib/sapi_bm.a(sAPI_Uart.o)
+ .debug_frame   0x0000000000000e24       0x38 ./out/lib/sapi_bm.a(sAPI_DataTypes.o)
+ .debug_frame   0x0000000000000e5c      0x264 ./out/lib/ext_drivers.a(adc_18xx_43xx.o)
+ .debug_frame   0x00000000000010c0       0xa0 ./out/lib/ext_drivers.a(chip_18xx_43xx.o)
+ .debug_frame   0x0000000000001160      0x568 ./out/lib/ext_drivers.a(clock_18xx_43xx.o)
+ .debug_frame   0x00000000000016c8       0x80 ./out/lib/ext_drivers.a(cr_startup_lpc43xx.o)
+ .debug_frame   0x0000000000001748       0xa8 ./out/lib/ext_drivers.a(dac_18xx_43xx.o)
+ .debug_frame   0x00000000000017f0      0x198 ./out/lib/ext_drivers.a(gpio_18xx_43xx.o)
+ .debug_frame   0x0000000000001988       0xa8 ./out/lib/ext_drivers.a(sct_18xx_43xx.o)
+ .debug_frame   0x0000000000001a30      0x120 ./out/lib/ext_drivers.a(sct_pwm_18xx_43xx.o)
+ .debug_frame   0x0000000000001b50       0x34 ./out/lib/ext_drivers.a(sysinit.o)
+ .debug_frame   0x0000000000001b84       0xf4 ./out/lib/ext_drivers.a(sysinit_18xx_43xx.o)
+ .debug_frame   0x0000000000001c78      0x4e4 ./out/lib/ext_drivers.a(uart_18xx_43xx.o)
+ .debug_frame   0x000000000000215c       0x38 ./out/lib/ext_drivers.a(fpu_init.o)
+ .debug_frame   0x0000000000002194       0xd0 ./out/lib/sapi_bm.a(sAPI_IsrVector.o)
+ .debug_frame   0x0000000000002264      0x3e4 ./out/lib/sapi_bm.a(sAPI_Timer.o)
+ .debug_frame   0x0000000000002648       0x2c /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000000000002674       0x34 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7e-m/softfp/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00000000000026a8       0x30 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-atoi.o)
+ .debug_frame   0x00000000000026d8       0x34 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-memset.o)
+ .debug_frame   0x000000000000270c       0x28 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcat.o)
+ .debug_frame   0x0000000000002734       0x68 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcmp.o)
+ .debug_frame   0x000000000000279c       0x20 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strcpy.o)
+ .debug_frame   0x00000000000027bc       0x54 /usr/local/Caskroom/gcc-arm-embedded/5_4-2016q2,20160622/gcc-arm-none-eabi-5_4-2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-strtol.o)

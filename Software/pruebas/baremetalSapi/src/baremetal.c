@@ -96,7 +96,7 @@
 * \remarks This function never returns. Return value is only to avoid compiler
 *          warnings or errors.
 */
-#define FACTOR 0.4
+#define FACTOR 0.25
 
 static uint8_t uartBuff[10];
 //static uint8_t uartBuff2[10];
@@ -219,7 +219,7 @@ void procesaLectura( Canal *ptrCanal )
 			uartWriteString( UART_USB, (uint8_t*)"CHx: Flanco de subida\n\r" );
 		}
 		if( ptrCanal->flancoAsc > 0 && ptrCanal->flancoDes > 0){
-			ptrCanal->periodo = ptrCanal->flancoAsc - ptrCanal->flancoDes;
+			ptrCanal->periodo = (ptrCanal->flancoAsc - ptrCanal->flancoDes)*5;
 			ptrCanal->comienzoPeriodo = ptrCanal->flancoDes;
 			ptrCanal->flancoAsc = ptrCanal->flancoDes = 0;
 
@@ -241,6 +241,7 @@ void cuentaPasajero( Canal *ptrCanal1 , Canal *ptrCanal2 )
 	if( ptrCanal1->periodo > 0 && ptrCanal2->periodo > 0 ){
 
 		diferenciaFlancos = ptrCanal1->comienzoPeriodo - ptrCanal2->comienzoPeriodo;
+		diferenciaFlancos = diferenciaFlancos*5;
 
   // Si lo que atravesó los sensores es una persona (inserte AA aquí)
 		if( ptrCanal1->periodo > 100 && ptrCanal2->periodo > 100 )
@@ -250,7 +251,11 @@ void cuentaPasajero( Canal *ptrCanal1 , Canal *ptrCanal2 )
 			}
 			else {
 				uartWriteString( UART_USB, (uint8_t*)"PERSONA: Descenso de pasajero\n\r" );
-				contador--;
+				if (contador > 0) {
+					contador--;
+				} else {
+					uartWriteString( UART_USB, (uint8_t*)"NO HAY PASAJEROS PARA RESTAR\r\n");
+				}
 			}
 
 			ptrCanal1->periodo = ptrCanal2->periodo = 0;
@@ -258,10 +263,10 @@ void cuentaPasajero( Canal *ptrCanal1 , Canal *ptrCanal2 )
 		}
 	}
 
-	void determinarUmbral( Canal *ptrCanal )
+	void determinarUmbral( Canal *ptrCanal , uint8_t numCanal )
 	{
 // Calcular los umbrales para cada canal como:
-		ptrCanal->puntoMedio = ( (float) ( promedio(1,HIGH) + promedio(1,LOW) ) )/2;
+		ptrCanal->puntoMedio = ( (float) ( promedio(numCanal,HIGH) + 0*promedio(numCanal,LOW) ) )/2;
 
 		ptrCanal->umbralAlto = ptrCanal->puntoMedio + FACTOR*( float ) ptrCanal->puntoMedio;
 		ptrCanal->umbralBajo = ptrCanal->puntoMedio - FACTOR*( float ) ptrCanal->puntoMedio;
@@ -345,8 +350,8 @@ CH2.flancoAsc = 0;
 CH2.flancoDes = 0;
 CH1.periodo = 0;
 
-determinarUmbral( &CH1 );
-determinarUmbral( &CH2 );
+determinarUmbral( &CH1 , 1 );
+determinarUmbral( &CH2 , 2 );
 
 pwmWrite( PWM6, 255);    // gpio 8
 
@@ -364,9 +369,9 @@ CH2.muestraAnt = analogRead( AI1 );
 delay(3000);
 
 uartWriteString( UART_USB, (uint8_t*)"\n\r ============================================================== \n\r" );
-uartWriteString( UART_USB, (uint8_t*)"\n\rComienza simulacion\n\r" );
+uartWriteString( UART_USB, (uint8_t*)"\n\rComienza simulacion\n\r SALTAR GPRS INIT \r\n" );
 
-GPRS_init();
+// GPRS_init();
 delay(100);
 
 uint8_t veces = 0;
@@ -409,6 +414,23 @@ while(1) {
 
 		cuentaPasajero( &CH1 , &CH2 );
 
+		// uartWriteString(UART_USB, (uint8_t*)"Lectura CH1: ");
+		// itoa(CH1.muestraAct, contadorString, 10);
+		// uartWriteString(UART_USB, (uint8_t*)contadorString);
+		// uartWriteString(UART_USB, (uint8_t*)"\t");
+		// itoa(CH1.puntoMedio, contadorString, 10);
+		// uartWriteString(UART_USB, (uint8_t*)contadorString);
+		// uartWriteString(UART_USB, (uint8_t*)"\t");
+		//
+		// itoa(CH2.muestraAct, contadorString, 10);
+		// uartWriteString(UART_USB, (uint8_t*)"Lectura CH2: ");
+		// uartWriteString(UART_USB, (uint8_t*)contadorString);
+		// uartWriteString(UART_USB, (uint8_t*)"\t");
+		// itoa(CH2.puntoMedio, contadorString, 10);
+		// uartWriteString(UART_USB, (uint8_t*)contadorString);
+		// uartWriteString(UART_USB, (uint8_t*)"\n");
+
+
 		flag5ms = false;
 	}
 
@@ -433,16 +455,16 @@ while(1) {
 			//imprime los datos obtenidos
 			flagDatos = true;
 			gpsClearFlagReady();
-			gpsVarPrint();
+			// gpsVarPrint();
 			itoa(contador, contadorString, 10);
-			uartWriteString( UART_USB, (uint8_t*)"Cantidad pasajeros: ");
-			uartWriteString( UART_USB, (uint8_t*)contadorString);
+			//uartWriteString( UART_USB, (uint8_t*)"Cantidad pasajeros: ");
+			//uartWriteString( UART_USB, (uint8_t*)contadorString);
 			uartWriteByte(UART_USB,'\n');
 			uartWriteByte(UART_USB,'\r');
 	}
 
 	if (flag20seg) {
-		GPRS_mef(contadorString, gpsReadLatitudeUbidots(), gpsReadLongitudeUbidots());
+		// GPRS_mef(contadorString, gpsReadLatitudeUbidots(), gpsReadLongitudeUbidots());
 		veces++;
 		flag20seg = false;
 		flag3seg = false;
@@ -450,18 +472,26 @@ while(1) {
 		GPRS_leerRespuesta();
 	}
 
-	if (flag3seg && flagSending) {
-		if (veces < 3) {
-			GPRS_mef(contadorString, gpsReadLatitudeUbidots(), gpsReadLongitudeUbidots());
-			veces++;
-			GPRS_leerRespuesta();
-		} else {
-			flagSending = false;
-			veces = 0;
-			GPRS_leerRespuesta();
-		}
+	if (flag3seg) {
+		itoa(contador, contadorString, 10);
+		uartWriteString( UART_USB, (uint8_t*)"Contador pasajero: ");
+		uartWriteString( UART_USB, (uint8_t*)contadorString);
+		uartWriteString( UART_USB, (uint8_t*)"\n");
 		flag3seg = false;
 	}
+
+	// if (flag3seg && flagSending) {
+	// 	if (veces < 3) {
+	// 		GPRS_mef(contadorString, gpsReadLatitudeUbidots(), gpsReadLongitudeUbidots());
+	// 		veces++;
+	// 		GPRS_leerRespuesta();
+	// 	} else {
+	// 		flagSending = false;
+	// 		veces = 0;
+	// 		GPRS_leerRespuesta();
+	// 	}
+	// 	flag3seg = false;
+	// }
 
 	// GPRS_leerRespuesta();
 
